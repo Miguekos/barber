@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h3>Usuarios <a class="pull-right btn btn-xs btn-default" href="{{ route('register') }}">Nuevo Usuario</a></h3>
+<h1>Usuarios <small class="pull-right"><a class="btn btn-xs btn-success" href="{{ route('register') }}">Nuevo Usuario</a></small></h1>
 <div class="card">
     <div class="card-body">
         <div class="table-responsive">
@@ -23,7 +23,7 @@
                               <td width="17%">
                                   <form action="">
                                       <!-- <a class="btn btn-sm btn-default">Ver</a> -->
-                                      <a href="{{ route('user.edit',$users->id) }}" class="btn btn-sm btn-info">Editar</a>
+                                      <a href="{{ route('user.edit',$users->id) }}" class="btn btn-sm btn-warning">Editar</a>
                                       <!-- <a class="btn btn-sm btn-default">Eliminar</a> -->
                                   </form>
                               </td>

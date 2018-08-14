@@ -19,6 +19,7 @@ Route::resource('user','UserController');
 Route::resource('barber','BarberController');
 Route::resource('venta','VentaController');
 Route::resource('corte','CorteController');
+Route::resource('servicio','ServicioController');
 
 
 

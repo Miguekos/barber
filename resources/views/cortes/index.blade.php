@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<h1 class="panel-heading">Cortes</h1>
 <div class="card">
     <div class="card-body">
-      <h2 class="card-title">Cortes</h2>
           @if (session('status'))
               <div class="alert alert-success">
                   {{ session('status') }}
@@ -23,12 +23,13 @@
                   <input type="hidden" name="user_id" value="{{ $user->id }}" class="form-control">
                   <br>
                   <div>
-                      <input type="submit" class="btn btn-sm btn-success btn-block" value="Guarcar">
+                      <input type="submit" class="btn btn-sm btn-success btn-block" value="Guardar">
                   </div>
               </div>
           </form>
           <hr>
-          <h2><u>Cuentas de {{ $user->name }}</u></h2>
+          <h2 class="text-center panel-heading">Control de Servicios</h2>
+          <hr>
           <table id="zero_config" class="table table-striped table-bordered">
               <thead>
                   <tr>
@@ -65,19 +66,17 @@
           </table>
             </div>
         </div>
-
+        <script>
+        function myFunction() {
+            var person = prompt("Contraseña: ");
+            if (person == 'borrar') {
+                // document.getElementById("demo").innerHTML =
+                // "Hello " + person + "! How are you today?";
+                document.getElementById('form').submit();
+            }else{
+                alert('Contraseña Incorrecta');
+                // location.href="/home";
+            }
+        }
+        </script>
 @endsection
-
-<script>
-function myFunction() {
-    var person = prompt("Contraseña: ");
-    if (person == 'borrar') {
-        // document.getElementById("demo").innerHTML =
-        // "Hello " + person + "! How are you today?";
-        document.getElementById('form').submit();
-    }else{
-        alert('Contraseña Incorrecta');
-        // location.href="/home";
-    }
-}
-</script>
