@@ -20,7 +20,11 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-
+<style media="screen">
+  body{
+    background-image: url('../../assets/images/fondo.png');
+  }
+</style>
 <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->
