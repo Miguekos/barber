@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Barber;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +13,8 @@ class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $barbers = Barber::all();
+        return view('auth.register',compact('barbers'));
     }
 
 
@@ -33,15 +35,18 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-//        return $request->all();
+       // return $request->all();
         $this->validator($request->all())->validate();
         $crear = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'rol' => $request->rol,
+            'barber_id' => $request->barber_id,
+            'porcent' => $request->porcent,
         ]);
-        return redirect()->route('dashboard')->with('flash','Se guardo el empleado correctamente');
+        // return $crear;
+        return redirect()->route('user.index')->with('flash','Se guardo el empleado correctamente');
     }
 
     /**

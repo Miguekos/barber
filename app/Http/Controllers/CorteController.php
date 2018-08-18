@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Servicio;
 use App\Corte;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -21,9 +22,10 @@ class CorteController extends Controller
 
       // Obtiene el ID del Usuario Autenticado
       // $id = Auth::id();
+      $servicios = Servicio::all();
       $datos = Corte::where('user_id',$user->id)->get();
       $suma = Corte::where('user_id',$user->id)->sum('valor');
-      return view('cortes.index',compact('user','datos','suma'));
+      return view('cortes.index',compact('user','datos','suma','servicios'));
     }
 
     /**

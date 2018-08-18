@@ -16,6 +16,7 @@ class CreateBarbersTable extends Migration
         Schema::create('barbers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre')->nullable();
+            $table->string('descripcion')->nullable();
             $table->timestamps();
         });
     }

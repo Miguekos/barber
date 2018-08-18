@@ -59,11 +59,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="email" class="col-md-4 control-label">Barberia</label>
+                                <label for="email" class="col-md-4 control-label">Barberia <a class="btn btn-xs btn-success" href="{{ route('barber.create') }}"> Nueva</a></label>
                                 <div class="col-md-6">
-                                    <select class="form-control" name="Barber_id" id="Barber_id">
-                                        <option value="1">Barberia 1</option>
-                                        <option value="2">Barberia 2</option>
+                                    <select class="form-control" name="barber_id" id="barber_id">
+                                        <option value="">-- SELECCIONA UNA BARBERIA --</option>
+                                        @foreach($barbers as $barber)
+                                        <option value="{{ $barber->nombre }}">{{ $barber->nombre }}</option>
+                                        @endforeach
+
                                     </select>
                                 </div>
                             </div>

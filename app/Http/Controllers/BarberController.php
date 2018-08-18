@@ -14,8 +14,10 @@ class BarberController extends Controller
      */
     public function index()
     {
-        return back()->with('success','El modulo de Barberia esta en contrusccion..!!');
+        $barbers = Barber::all();
+        return view('barbers.index',compact('barbers'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +26,7 @@ class BarberController extends Controller
      */
     public function create()
     {
-        //
+        return view('barbers.create');
     }
 
     /**
@@ -35,7 +37,10 @@ class BarberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $dato = Barber::create($request->all());
+      $dato->save();
+      return redirect()->route('barber.index')->with('success','Se guardo correctamente la barberia.!');
+      // return $request->all();
     }
 
     /**

@@ -11,6 +11,8 @@
                               <th>#</th>
                               <th>Nombre</th>
                               <th>Email</th>
+                              <th>Porcentaje</th>
+                              <th>Barberia</th>
                               <th>Acciones</th>
                           </tr>
                       </thead>
@@ -20,6 +22,8 @@
                               <td>{{ $users->id }}</td>
                               <td>{{ $users->name }}</td>
                               <td>{{ $users->email }}</td>
+                              <td>{{ $users->porcent }}</td>
+                              <td>{{ $users->barber_id }}</td>
                               <td width="17%">
                                   <form action="">
                                       <!-- <a class="btn btn-sm btn-default">Ver</a> -->

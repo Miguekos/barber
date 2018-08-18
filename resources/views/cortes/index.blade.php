@@ -13,12 +13,19 @@
           {{ csrf_field() }}
               <div class="col-md-12 form-group">
                   <div>
-                      <label for="">Tipo de Servicio</label>
-                      <input type="text" step="any" name="motivo" autofocus class="form-control col-md-12">
+                      <label for="motivo">Tipo de Servicio</label>
+                      <form>
+                      <select class="form-control" name="motivo" onchange="showService(this.value)">
+                        <option value="">-- SELECCIONE UN SERVICIO --</option>
+                        @foreach($servicios as $servicio)
+                        <option class="form-control" value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
+                        @endforeach
+                      </select>
+                      </form>
                   </div>
                   <div>
-                    <label for="">Monto a guardar</label>
-                    <input type="number" step="any" name="valor" class="form-control">
+                    <label for="">Precio</label>
+                    <div id="precio_servicio"></div>
                   </div>
                   <input type="hidden" name="user_id" value="{{ $user->id }}" class="form-control">
                   <br>
@@ -79,4 +86,28 @@
             }
         }
         </script>
+
+        <script>
+          function showService(str) {
+              if (str == "") {
+                  document.getElementById("precio_servicio").innerHTML = "";
+                  return;
+              } else {
+                  if (window.XMLHttpRequest) {
+                      // code for IE7+, Firefox, Chrome, Opera, Safari
+                      xmlhttp = new XMLHttpRequest();
+                  } else {
+                      // code for IE6, IE5
+                      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                  }
+                  xmlhttp.onreadystatechange = function() {
+                      if (this.readyState == 4 && this.status == 200) {
+                          document.getElementById("precio_servicio").innerHTML = this.responseText;
+                      }
+                  };
+                  xmlhttp.open("GET","getservice.php?q="+str,true);
+                  xmlhttp.send();
+              }
+          }
+          </script>
 @endsection

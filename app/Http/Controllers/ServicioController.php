@@ -14,7 +14,9 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        return back()->with('success','Modulo en construccion..!!');
+        
+        $servicios = Servicio::all();
+        return view('servicios.index',compact('servicios'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        //
+        return view('servicios.create');
     }
 
     /**
@@ -35,7 +37,9 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $dato = Servicio::create($request->all());
+      $dato->save();
+      return redirect()->route('servicio.index')->with('success','Se guardo correctamente la barberia.!');
     }
 
     /**
