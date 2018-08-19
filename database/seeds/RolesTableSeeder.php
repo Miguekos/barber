@@ -13,9 +13,9 @@ class RolesTableSeeder extends Seeder
     {
         for ($i = 0; $i < 3; $i++){
             if ($i == 0){
-                $nombre = "Administrador";
+                $nombre = "barbero";
             }elseif ($i == 1){
-                $nombre = "Usuario";
+                $nombre = "encargado";
             }
             $roles = \App\Roles::create ([
                 'nombre' => $nombre,

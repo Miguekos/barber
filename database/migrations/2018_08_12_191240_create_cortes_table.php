@@ -15,6 +15,7 @@ class CreateCortesTable extends Migration
     {
         Schema::create('cortes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('motivo_id')->nullable();
             $table->string('motivo')->nullable();
             $table->float('valor')->nullable();
             $table->float('porcent')->nullable();

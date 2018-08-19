@@ -43,6 +43,7 @@ class RegisterController extends Controller
             'password' => bcrypt($request->password),
             'rol' => $request->rol,
             'barber_id' => $request->barber_id,
+            'barber' => $request->barber,
             'porcent' => $request->porcent,
         ]);
         // return $crear;

@@ -8,9 +8,10 @@
     <!-- ============================================================== -->
     <div class="row">
         <!-- Column -->
+        @if(auth()->user()->rol == 'barbero')
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
-              <a href="/user">
+              <a href="/dashboard">
                 <div class="box bg-cyan text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
                     <h6 class="text-white">Escritorio</h6>
@@ -21,7 +22,29 @@
         <!-- Column -->
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
-              <a href="/user">
+              <a href="/corte">
+                <div class="box bg-success text-center">
+                    <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
+                    <h6 class="text-white">Cortes</h6>
+                </div>
+                </a>
+            </div>
+        </div>
+        @else
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+              <a href="/dashboard">
+                <div class="box bg-cyan text-center">
+                    <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                    <h6 class="text-white">Escritorio</h6>
+                </div>
+              </a>
+            </div>
+        </div>
+        <!-- Column -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+              <a href="/corte">
                 <div class="box bg-success text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
                     <h6 class="text-white">Cortes</h6>
@@ -32,7 +55,7 @@
          <!-- Column -->
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
-              <a href="/user">
+              <a href="/barber">
                 <div class="box bg-warning text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
                     <h6 class="text-white">Barberias</h6>
@@ -51,8 +74,8 @@
               </a>
             </div>
         </div>
+        @endif
     </div>
-
 
     <div class="row">
     <div class="col-md-4">
@@ -72,11 +95,11 @@
                     </tr>
                     <tr>
                       <td>Porncentaje</td>
-                      <td>{{ auth()->user()->porcent }}</td>
+                      <td>{{ auth()->user()->porcent }} %</td>
                     </tr>
                     <tr>
                       <td>Barberia</td>
-                      <td>{{ auth()->user()->barber_id }}</td>
+                      <td>{{ auth()->user()->barber }}</td>
                     </tr>
               </tbody>
             </table>

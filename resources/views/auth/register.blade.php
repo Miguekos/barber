@@ -52,8 +52,8 @@
                                 <label for="email" class="col-md-4 control-label">Rol</label>
                                 <div class="col-md-6">
                                     <select class="form-control" name="rol" id="rol">
-                                        <option value="Usuario">Usuario</option>
-                                        <option value="Administrador">Administrador</option>
+                                        <option value="barbero">Barbero</option>
+                                        <option value="encargado">Encargado</option>
                                     </select>
                                 </div>
                             </div>
@@ -61,10 +61,11 @@
                             <div class="form-group">
                                 <label for="email" class="col-md-4 control-label">Barberia <a class="btn btn-xs btn-success" href="{{ route('barber.create') }}"> Nueva</a></label>
                                 <div class="col-md-6">
-                                    <select class="form-control" name="barber_id" id="barber_id">
+                                    <select class="form-control" name="barber" id="barber">
                                         <option value="">-- SELECCIONA UNA BARBERIA --</option>
                                         @foreach($barbers as $barber)
                                         <option value="{{ $barber->nombre }}">{{ $barber->nombre }}</option>
+                                        <input type="hidden" name="barber_id" value="{{ $barber->id }}">
                                         @endforeach
 
                                     </select>

@@ -20,6 +20,8 @@ Route::resource('barber','BarberController');
 Route::resource('venta','VentaController');
 Route::resource('corte','CorteController');
 Route::resource('servicio','ServicioController');
+Route::resource('cierre','CierreController');
+Route::post('reporte', 'CierreController@reporte')->name('reporte');
 
 
 

@@ -13,12 +13,12 @@
           {{ csrf_field() }}
               <div class="col-md-12 form-group">
                   <div>
-                      <label for="motivo">Tipo de Servicio</label>
+                      <label for="motivo_id">Tipo de Servicio</label>
                       <form>
-                      <select class="form-control" name="motivo" onchange="showService(this.value)">
-                        <option value="">-- SELECCIONE UN SERVICIO --</option>
+                      <select class="form-control" name="motivo_id" onchange="showService(this.value)">
+                        <option value="0">-- SELECCIONE UN SERVICIO --</option>
                         @foreach($servicios as $servicio)
-                        <option class="form-control" value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
+                          <option value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
                         @endforeach
                       </select>
                       </form>
@@ -28,6 +28,9 @@
                     <div id="precio_servicio"></div>
                   </div>
                   <input type="hidden" name="user_id" value="{{ $user->id }}" class="form-control">
+                  <input type="hidden" name="barber_id" value="{{ $user->barber_id }}" class="form-control">
+                  <input type="hidden" name="porcent" value="{{ $user->porcent }}" class="form-control">
+
                   <br>
                   <div>
                       <input type="submit" class="btn btn-sm btn-success btn-block" value="Guardar">
@@ -41,7 +44,7 @@
               <thead>
                   <tr>
                       <th>#</th>
-                      <th>Motivo</th>
+                      <th>Servicio</th>
                       <th>Valor</th>
                       <th class="text-center">Accion</th>
                   </tr>
@@ -71,6 +74,12 @@
                   </tr>
               </tfoot>
           </table>
+
+          <hr>
+          <h5>Total en servicios <small>{{ $suma }} ./s</small></h5>
+          <h5>Ganacia <small>{{ (auth()->user()->porcent / 100) * $suma }} ./s</small></h5>
+          <hr>
+
             </div>
         </div>
         <script>

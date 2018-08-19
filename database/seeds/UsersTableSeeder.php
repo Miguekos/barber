@@ -16,9 +16,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Administrador',
             'email' => 'admin@admin.com',
             'password' => bcrypt('secret'),
-            'rol' => 'Administrador',
-            'barber_id' => '0',
-            'porcent' => '0',
+            'rol' => 'encargado',
         ]);
     }
 }

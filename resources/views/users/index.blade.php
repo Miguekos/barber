@@ -23,7 +23,7 @@
                               <td>{{ $users->name }}</td>
                               <td>{{ $users->email }}</td>
                               <td>{{ $users->porcent }}</td>
-                              <td>{{ $users->barber_id }}</td>
+                              <td>{{ $users->barber }}</td>
                               <td width="17%">
                                   <form action="">
                                       <!-- <a class="btn btn-sm btn-default">Ver</a> -->

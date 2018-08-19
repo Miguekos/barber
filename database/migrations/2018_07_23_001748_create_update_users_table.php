@@ -15,6 +15,7 @@ class CreateUpdateUsersTable extends Migration
     {
         Schema::table('users', function ($table) {
             $table->string('rol')->nullable();
+            $table->string('barber')->nullable();
             $table->integer('barber_id')->nullable();
             $table->float('porcent')->nullable();
         });

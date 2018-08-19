@@ -37,9 +37,11 @@ $result = mysqli_query($con,$sql);
 // </tr>";
 while($row = mysqli_fetch_array($result)) {
   $precio = $row['precio'];
+  $motivo = $row['nombre'];
 
   echo "
   <input type='number' step='any' name='valor' value='$precio' class='form-control'>
+  <input type='hidden' name='motivo' value='$motivo' class='form-control'>
   ";
     // echo "<tr>";
     // echo "<td>" . $row['nombre'] . "</td>";
