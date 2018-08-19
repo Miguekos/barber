@@ -15,6 +15,13 @@ class CreateCierresTable extends Migration
     {
         Schema::create('cierres', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('ventas_cortes')->nullable();
+            $table->string('ventas_productos')->nullable();
+            $table->string('barberia')->nullable();
+            $table->string('total')->nullable();
+            $table->string('ganancia')->nullable();
+            $table->string('gastos_varios')->nullable();
+            $table->timestamps('fecha')->nullable();
             $table->timestamps();
         });
     }

@@ -6,16 +6,17 @@ use Carbon\Carbon;
 use App\Corte;
 use App\Cierre;
 use App\User;
+use App\Report;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class CierreController extends Controller
+class ReportController extends Controller
 {
 
-      public function __construct()
-      {
-          $this->middleware('auth');
-      }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,10 +24,8 @@ class CierreController extends Controller
      */
     public function index()
     {
-        $corte = Corte::where([
-          ['created_at', '>', date('Y-m-d')],
-        ])->sum('valor');
-        return view('cierres.index',compact('corte'));
+      $barberos = User::all();
+      return view('reports.index',compact('barberos'));
     }
 
     /**
@@ -53,21 +52,21 @@ class CierreController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cierre  $cierre
+     * @param  \App\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function show(Cierre $cierre)
+    public function show(Report $report)
     {
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cierre  $cierre
+     * @param  \App\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cierre $cierre)
+    public function edit(Report $report)
     {
         //
     }
@@ -76,10 +75,10 @@ class CierreController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cierre  $cierre
+     * @param  \App\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cierre $cierre)
+    public function update(Request $request, Report $report)
     {
         //
     }
@@ -87,10 +86,10 @@ class CierreController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cierre  $cierre
+     * @param  \App\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cierre $cierre)
+    public function destroy(Report $report)
     {
         //
     }

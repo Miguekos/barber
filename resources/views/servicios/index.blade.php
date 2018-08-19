@@ -2,13 +2,12 @@
 
 
 @section('content')
-
 <h1>Servicios <small class="pull-right"><a class="btn btn-xs btn-success" href="{{ route('servicio.create') }}">Nuevo Servicio</a></small></h1>
 <div class="card">
     <div class="card-body">
 
       <div class="table-responsive">
-      <table class="table">
+      <table id="zero_config" class="table table-striped table-bordered">
         <thead>
           <tr>
             <th>#</th>
@@ -32,4 +31,5 @@
 
     </div>
 </div>
+
 @endsection

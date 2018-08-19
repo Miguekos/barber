@@ -64,10 +64,6 @@
             @if (session()->has('success'))
                 <div class="alert alert-success">
                   {{ session('success') }}
-                  <!-- <script type="text/javascript">
-                    toastr.success('Have fun storming the castle!', 'Miracle Max Says');
-                  </script> -->
-
                 </div>
 
             @elseif (session()->has('danger'))
@@ -86,12 +82,13 @@
 
 
           </div>
-          @include('templates.footer')
 
+@include('templates.footer')
         </div>
       <!-- ============================================================== -->
       <!-- End Page wrapper  -->
       <!-- ============================================================== -->
+
   </div>
 
   <script src="{{ asset('../../assets/libs/jquery/dist/jquery.min.js') }}"></script>
@@ -199,7 +196,9 @@
   });
 });
 </script>
+
 </body>
+
 <!-- <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script> -->

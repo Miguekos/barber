@@ -7,7 +7,8 @@
 <div class="card">
     <div class="card-body">
 
-      <table class="table">
+      <div class="table-responsive">
+      <table id="zero_config" class="table table-striped table-bordered">
         <thead>
           <tr>
             <th>#</th>
@@ -25,6 +26,7 @@
           @endforeach
         </tbody>
       </table>
+    </div>
 
 
     </div>
