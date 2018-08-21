@@ -46,6 +46,7 @@
                       <th>#</th>
                       <th>Servicio</th>
                       <th>Valor</th>
+                      <th>Fecha</th>
                       <th class="text-center">Accion</th>
                   </tr>
               </thead>
@@ -55,6 +56,7 @@
                       <td>{{ $dato->id }}</td>
                       <td>{{ $dato->motivo }}</td>
                       <td>{{ $dato->valor }}</td>
+                      <td>{{ $dato->created_at->Format('d-m-Y H:m') }}</td>
                       <td class="text-center">
                           <form id="form" action="{{ route('corte.destroy',$dato->id) }}" method="post">
                               {{ csrf_field() }}

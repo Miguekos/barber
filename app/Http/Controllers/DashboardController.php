@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Roles;
 use App\User;
+use App\Corte;
 use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -47,19 +48,36 @@ class DashboardController extends Controller
     }
 
 
-    public function control_admin()
+    public function barberos()
     {
-      $now = new DateTime('America/Lima');
-      // $hora = $now->format('d-M-Y H:i:s');
-      $hora = $now->format('d-m-Y H:i');
-      $cliente = Cliente::all();
-      $control = Control::all();
-      return view('control_admin',compact('control','cliente','hora'));
+      $usuario = User::all();
+      return view('barberos',compact('usuario'));
+
     }
 
 
-    public function pago_admin()
+    public function cerrarBarbero(Request $request)
     {
+
+      // $datos = Corte::where('user_id',$request->barber_id)->get();
+      // $suma = Corte::where([
+      //   'user_id' => $request->barber_id,
+      //   'created_at' => date('Y-m-d'),
+      //   ])->sum('valor');
+
+      $suma = Corte::where([
+         ['user_id', '=', $request->barbero_id],
+         ['created_at', 'LIKE', date('Y-m-d%')],
+       ])->sum('valor');
+
+       // return $suma;
+      $porcentaje = $request->porcent;
+      $por_pagar = ($porcentaje / 100) * $suma;
+      $nombre_cierre = $request->nombre;
+      return view('detalleCierre',compact('suma','por_pagar','nombre_cierre'));
+
+      // return $request->all();
+
       //sumar y calcular por usuarios
     //   $usuarios = User::all();
     //   $id = auth()->user()->id;
@@ -85,11 +103,11 @@ class DashboardController extends Controller
 
 
 
-    $user = DB::table('nominas')
-             ->select('usuario','user_id_nomina', DB::raw('sum(abono_recaudado) as recaudado'), DB::raw('sum(pago_empleado) as pago_empleado'))
-             ->where('created_at','>','2018-07-30 06:09:35')
-             ->groupBy('usuario','user_id_nomina')
-             ->get();
+    // $user = DB::table('nominas')
+    //          ->select('usuario','user_id_nomina', DB::raw('sum(abono_recaudado) as recaudado'), DB::raw('sum(pago_empleado) as pago_empleado'))
+    //          ->where('created_at','>','2018-07-30 06:09:35')
+    //          ->groupBy('usuario','user_id_nomina')
+    //          ->get();
 
       // foreach ($user as $key) {
       //
@@ -109,8 +127,8 @@ class DashboardController extends Controller
       //
       //    }
       // }
-      $recaudo = Pago::where('created_at','>','2018-07-30 06:09:35')->get();
-      return view('pago_admin',compact('user','recaudo'));
+      // $recaudo = Pago::where('created_at','>','2018-07-30 06:09:35')->get();
+      // return view('pago_admin',compact('user','recaudo'));
 
 
 

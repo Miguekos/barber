@@ -23,6 +23,8 @@ Route::resource('servicio','ServicioController');
 Route::resource('cierre','CierreController');
 Route::resource('report','ReportController');
 Route::post('reporte', 'ReportController@reporte')->name('reporte');
+Route::get('barberos', 'DashboardController@barberos')->name('barberos');
+Route::post('barberos', 'DashboardController@cerrarBarbero')->name('barberos.store');
 
 
 

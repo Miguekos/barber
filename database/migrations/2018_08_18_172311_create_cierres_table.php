@@ -21,7 +21,7 @@ class CreateCierresTable extends Migration
             $table->string('total')->nullable();
             $table->string('ganancia')->nullable();
             $table->string('gastos_varios')->nullable();
-            $table->timestamps('fecha')->nullable();
+            $table->timestamp('fecha')->nullable();
             $table->timestamps();
         });
     }

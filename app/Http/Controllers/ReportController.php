@@ -115,7 +115,7 @@ class ReportController extends Controller
 
       //Porcentaje de ganacia
       $porcentaje = User::find($request->barbero);
-      $nombre = $porcentaje->name;
+      $nombre_barbero = $porcentaje->name;
       $fecha_inicio = $request->inicio;
       $fecha_fin = $request->fin;
 
@@ -140,10 +140,8 @@ class ReportController extends Controller
           return back()->with('danger','Tu porcentaje es igual a 0');
       }
 
-
-
-        $por_pagar = ($porcentaje->porcent / 100) + $suma;
-        return view('reporte',compact('report','suma','por_pagar','nombre','fecha_inicio','fecha_fin'));
+        $por_pagar = ($porcentaje->porcent / 100) * $suma;
+        return view('reporte',compact('report','suma','por_pagar','nombre_barbero','fecha_inicio','fecha_fin'));
 
 
       // return $report;

@@ -46,10 +46,13 @@ class CorteController extends Controller
      */
     public function store(Request $request)
     {
-      $dato = Corte::create($request->all());
-      $dato->save();
-      return redirect()->back();
-      // return $request->all();
+      if (!$request->motivo_id) {
+        return back()->with('flash','Debes seleccionar un Servicio..!!');
+      }else {
+        $dato = Corte::create($request->all());
+        $dato->save();
+        return redirect()->back()->with('success','Servicio Agregado..!!');;
+      }
     }
 
     /**
