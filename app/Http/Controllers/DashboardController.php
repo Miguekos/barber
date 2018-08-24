@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Barber;
+use App\Barbercierre;
 use App\Roles;
 use App\User;
 use App\Corte;
@@ -52,31 +54,39 @@ class DashboardController extends Controller
     {
       $usuario = User::all();
       return view('barberos',compact('usuario'));
-
     }
 
 
     public function cerrarBarbero(Request $request)
     {
+//       $datos = Corte::where('user_id',$request->barber_id)->get();
 
-      // $datos = Corte::where('user_id',$request->barber_id)->get();
-      // $suma = Corte::where([
-      //   'user_id' => $request->barber_id,
-      //   'created_at' => date('Y-m-d'),
-      //   ])->sum('valor');
 
-      $suma = Corte::where([
-         ['user_id', '=', $request->barbero_id],
-         ['created_at', 'LIKE', date('Y-m-d%')],
-       ])->sum('valor');
+        $barberoo = Barbercierre::where([
+         ['barbero_id', '=', $request->barbero_id],
+//         ['created_at', 'LIKE', date('Y-m-d%')],
+       ])->orderBy('id','DESC')->first();
+        $fecha = $barberoo->fecha;
 
-       // return $suma;
+//        return $fecha;
+
+        $suma = Corte::where([
+            ['user_id', '=', $request->barbero_id],
+//         'user_id' => $request->barber_id,
+            ['created_at', '>=', $fecha],
+        ])->sum('valor');
+//
+        $barbero_id = $request->barbero_id;
       $porcentaje = $request->porcent;
       $por_pagar = ($porcentaje / 100) * $suma;
       $nombre_cierre = $request->nombre;
-      return view('detalleCierre',compact('suma','por_pagar','nombre_cierre'));
 
-      // return $request->all();
+      $detalle = Barbercierre::where('barbero_id',$request->barbero_id)->get();
+
+
+      return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle'));
+
+
 
       //sumar y calcular por usuarios
     //   $usuarios = User::all();
@@ -130,10 +140,15 @@ class DashboardController extends Controller
       // $recaudo = Pago::where('created_at','>','2018-07-30 06:09:35')->get();
       // return view('pago_admin',compact('user','recaudo'));
 
+    }
 
+    public function barberosCierre(Request $request)
+    {
 
-
-
+        $dato = Barbercierre::create($request->all());
+        $dato->save();
+        return redirect()->route('barberos')->with('success','Se cerro correctamente las cuentas.!');
+//        return $request->all();
     }
 
 

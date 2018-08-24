@@ -56,7 +56,7 @@
                       <td>{{ $dato->id }}</td>
                       <td>{{ $dato->motivo }}</td>
                       <td>{{ $dato->valor }}</td>
-                      <td>{{ $dato->created_at->Format('d-m-Y H:m') }}</td>
+                      <td>{{ $dato->created_at->Format('d-m-Y H:i') }}</td>
                       <td class="text-center">
                           <form id="form" action="{{ route('corte.destroy',$dato->id) }}" method="post">
                               {{ csrf_field() }}
