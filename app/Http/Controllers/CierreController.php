@@ -28,10 +28,6 @@ class CierreController extends Controller
           ['created_at', '>', date('Y-m-d')],
         ])->sum('valor');
 
-        $corte = Barbercierre::where([
-            ['created_at', '>', date('Y-m-d')],
-        ])->sum('valor');
-
         return view('cierres.index',compact('corte'));
     }
 
