@@ -17,11 +17,12 @@ class CreateCierresTable extends Migration
             $table->increments('id');
             $table->string('ventas_cortes')->nullable();
             $table->string('ventas_productos')->nullable();
-            $table->string('barberia')->nullable();
+            $table->string('por_pagar')->nullable();
             $table->string('total')->nullable();
             $table->string('ganancia')->nullable();
             $table->string('gastos_varios')->nullable();
             $table->timestamp('fecha')->nullable();
+            $table->string('zero_config_length')->nullable();
             $table->timestamps();
         });
     }

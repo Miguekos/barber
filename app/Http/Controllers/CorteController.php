@@ -55,7 +55,7 @@ class CorteController extends Controller
       }else {
         $dato = Corte::create($request->all());
         $dato->save();
-        return redirect()->back()->with('success','Servicio Agregado..!!');;
+        return redirect()->back()->with('success','Servicio Agregado..!!');
       }
     }
 

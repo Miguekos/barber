@@ -36,7 +36,9 @@ class CierreController extends Controller
             ['activo', '=', 1],
         ])->sum('ganancia');
 
-        return view('cierres.index',compact('recaudado','por_pagar','ganancia'));
+        $cierre = Cierre::all();
+
+        return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre'));
     }
 
     /**
@@ -57,7 +59,18 @@ class CierreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (!$request->ventas_cortes) {
+            return back()->with('flash','No se puede cerrar caja vacia..!!');
+        }else {
+            Cierre::create($request->all());
+
+            Barbercierre::where('activo',1)
+                ->update(['activo' => 0]);
+
+            return back()->with('success','Cierre realizado correctamente..!!');
+        }
+
+
     }
 
     /**
@@ -100,9 +113,14 @@ class CierreController extends Controller
      * @param  \App\Cierre  $cierre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cierre $cierre)
+    public function destroy($cierre)
     {
-        //
+
+        $dato = Cierre::find($cierre);
+        $dato->delete();
+        return back()
+            ->with('success','Se elimino correctamente..!!');
+
     }
 
     public function reporte(Request $request)
