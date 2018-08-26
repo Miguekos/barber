@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Barbercierre;
 use Carbon\Carbon;
 use App\Corte;
 use App\Cierre;
@@ -26,6 +27,11 @@ class CierreController extends Controller
         $corte = Corte::where([
           ['created_at', '>', date('Y-m-d')],
         ])->sum('valor');
+
+        $corte = Barbercierre::where([
+            ['created_at', '>', date('Y-m-d')],
+        ])->sum('valor');
+
         return view('cierres.index',compact('corte'));
     }
 

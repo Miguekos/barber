@@ -38,7 +38,7 @@
               </div>
           </form>
           <hr>
-          <h2 class="text-center panel-heading">Control de Servicios</h2>
+          <h2 class="text-center panel-heading">Control de Servicios</h2>{{ date('Y-m-d')  }}
           <hr>
           <table id="zero_config" class="table table-striped table-bordered">
               <thead>

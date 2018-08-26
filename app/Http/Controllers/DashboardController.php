@@ -61,30 +61,43 @@ class DashboardController extends Controller
     {
 //       $datos = Corte::where('user_id',$request->barber_id)->get();
 
+        //validar admin
+//        return $request->all();
+        if ($request->barbero_id == "1"){
+            return back()->with('flash','Eres administrador');
+        }else{
 
-        $barberoo = Barbercierre::where([
-         ['barbero_id', '=', $request->barbero_id],
+            $barberoo = Barbercierre::where([
+                ['barbero_id', '=', $request->barbero_id],
 //         ['created_at', 'LIKE', date('Y-m-d%')],
-       ])->orderBy('id','DESC')->first();
-        $fecha = $barberoo->fecha;
+            ])->orderBy('id','DESC')->first();
+
+            if ($barberoo){
+                $fecha = $barberoo->fecha;
 
 //        return $fecha;
 
-        $suma = Corte::where([
-            ['user_id', '=', $request->barbero_id],
+                $suma = Corte::where([
+                    ['user_id', '=', $request->barbero_id],
 //         'user_id' => $request->barber_id,
-            ['created_at', '>=', $fecha],
-        ])->sum('valor');
+                    ['created_at', '>=', $fecha],
+                ])->sum('valor');
 //
-        $barbero_id = $request->barbero_id;
-      $porcentaje = $request->porcent;
-      $por_pagar = ($porcentaje / 100) * $suma;
-      $nombre_cierre = $request->nombre;
+                $barbero_id = $request->barbero_id;
+                $porcentaje = $request->porcent;
+                $por_pagar = ($porcentaje / 100) * $suma;
+                $nombre_cierre = $request->nombre;
 
-      $detalle = Barbercierre::where('barbero_id',$request->barbero_id)->get();
+                $detalle = Barbercierre::where('barbero_id',$request->barbero_id)->get();
 
 
-      return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle'));
+                return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle'));
+            } else{
+                return back()->with('success','No tiene cortes por cerrar..!!');
+            }
+        }
+
+
 
 
 

@@ -7,7 +7,8 @@
         <form action="{{ route('reporte') }}" method="post">
           {{ csrf_field() }}
           <div class="col-md-12">
-            <table class="table">
+            <div class="table-responsive">
+              <table id="zero_config" class="table table-striped table-bordered">
               <thead>
                 <tr>
                   <th>#</th>
@@ -30,14 +31,14 @@
                       <input type="hidden" name="barbero_id" value="{{ $usuarios->id }}">
                       <input type="hidden" name="porcent" value="{{ $usuarios->porcent }}">
                       <input type="hidden" name="nombre" value="{{ $usuarios->name }}">
-                      <input type="submit" class="btn btn-ms btn-success" name="" value="Acividad del dia">
+                      <input type="submit" class="btn btn-ms btn-success" value="Acividad del dia">
                     </form>
                   </td>
                 </tr>
                 @endforeach
               </tbody>
             </table>
-
+            </div>
 
           </div>
         </form>
