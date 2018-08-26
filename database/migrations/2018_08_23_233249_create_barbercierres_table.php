@@ -21,6 +21,7 @@ class CreateBarbercierresTable extends Migration
             $table->float('recaudado')->nullable();
             $table->float('ganancia')->nullable();
             $table->timestamp('fecha')->nullable();
+            $table->integer('activo');
             $table->timestamps();
         });
     }

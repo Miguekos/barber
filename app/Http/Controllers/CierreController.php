@@ -24,11 +24,19 @@ class CierreController extends Controller
      */
     public function index()
     {
-        $corte = Corte::where([
-          ['created_at', '>', date('Y-m-d')],
-        ])->sum('valor');
+        $recaudado = Barbercierre::where([
+          ['activo', '=', 1],
+        ])->sum('recaudado');
 
-        return view('cierres.index',compact('corte'));
+        $por_pagar = Barbercierre::where([
+            ['activo', '=', 1],
+        ])->sum('por_pagar');
+
+        $ganancia = Barbercierre::where([
+            ['activo', '=', 1],
+        ])->sum('ganancia');
+
+        return view('cierres.index',compact('recaudado','por_pagar','ganancia'));
     }
 
     /**

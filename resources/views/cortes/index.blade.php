@@ -30,6 +30,7 @@
                   <input type="hidden" name="user_id" value="{{ $user->id }}" class="form-control">
                   <input type="hidden" name="barber_id" value="{{ $user->barber_id }}" class="form-control">
                   <input type="hidden" name="porcent" value="{{ $user->porcent }}" class="form-control">
+                  <input type="hidden" name="activo" value="1" class="form-control">
 
                   <br>
                   <div>

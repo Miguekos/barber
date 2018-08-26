@@ -63,24 +63,23 @@ class DashboardController extends Controller
 
         //validar admin
 //        return $request->all();
-        if ($request->barbero_id == "1"){
-            return back()->with('flash','Eres administrador');
-        }else{
+//        if ($request->barbero_id == "1"){
+//            return back()->with('flash','Eres administrador');
+//        }else{
 
-            $barberoo = Barbercierre::where([
-                ['barbero_id', '=', $request->barbero_id],
+//            $barberoo = Barbercierre::where([
+//                ['barbero_id', '=', $request->barbero_id],
 //         ['created_at', 'LIKE', date('Y-m-d%')],
-            ])->orderBy('id','DESC')->first();
+//            ])->orderBy('id','DESC')->first();
 
-            if ($barberoo){
-                $fecha = $barberoo->fecha;
+//            if ($barberoo){
+//                $fecha = $barberoo->fecha;
 
 //        return $fecha;
 
                 $suma = Corte::where([
                     ['user_id', '=', $request->barbero_id],
-//         'user_id' => $request->barber_id,
-                    ['created_at', '>=', $fecha],
+                    ['activo', '>=', 1],
                 ])->sum('valor');
 //
                 $barbero_id = $request->barbero_id;
@@ -92,13 +91,10 @@ class DashboardController extends Controller
 
 
                 return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle'));
-            } else{
-                return back()->with('success','No tiene cortes por cerrar..!!');
-            }
-        }
-
-
-
+//            } else{
+//                return back()->with('success','No tiene cortes por cerrar..!!');
+//            }
+//        }
 
 
       //sumar y calcular por usuarios
@@ -158,10 +154,19 @@ class DashboardController extends Controller
     public function barberosCierre(Request $request)
     {
 
+        if (!$request->recaudado){
+            return back()->with('flash','No puedes cerrar caja sin ventas..!!');
+        }else{
         $dato = Barbercierre::create($request->all());
         $dato->save();
+
+        Corte::where('activo', 1)
+            ->where('user_id',$request->barbero_id)
+            ->update(['activo' => 0]);
+
         return redirect()->route('barberos')->with('success','Se cerro correctamente las cuentas.!');
 //        return $request->all();
+        }
     }
 
 

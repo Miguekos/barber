@@ -25,7 +25,8 @@ class CorteController extends Controller
       $servicios = Servicio::all();
       $datos = Corte::where([
           ['user_id', '=' ,$user->id],
-          ['created_at', 'LIKE', date('Y-m-d%')],
+          ['activo', '=' ,1],
+//          ['created_at', 'LIKE', date('Y-m-d%')],
       ])->get();
       $suma = Corte::where('user_id',$user->id)->sum('valor');
       return view('cortes.index',compact('user','datos','suma','servicios'));
@@ -100,8 +101,13 @@ class CorteController extends Controller
      */
     public function destroy($corte)
     {
+
       $dato = Corte::find($corte);
       $dato->delete();
+
+//      Corte::where('activo', 1)
+//          ->where('user_id',auth()->user()->id)
+//          ->update(['activo' => 0]);
       return redirect()->back();
     }
 }

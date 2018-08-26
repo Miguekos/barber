@@ -12,27 +12,27 @@
         <div class="row">
             <div class="col-md-2">
               <label for="">Cortes</label>
-                <input type="text" readonly value="{{ $corte }} ./s" class="form-control">
+                <input type="text" readonly value="{{ $recaudado }} ./s" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Productos</label>
-                <input type="text" readonly value="" placeholder="en construccion" class="form-control">
+                <input type="text" readonly value="" placeholder="En Construccion" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Pagos a Personal</label>
-                <input type="text" readonly value="" placeholder="en construccion" class="form-control">
+                <input type="text" readonly value="{{ $por_pagar }}"  class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Ganancia</label>
-                <input type="text" readonly value="{{ date('y') }} ./s" class="form-control">
+                <input type="text" readonly value="{{ $ganancia }} ./s" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Total</label>
-                <input type="text" readonly value="{{ date('y') }} ./s" class="form-control">
+                <input type="text" readonly value="{{ $ganancia }} ./s" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Fecha</label>
-                <input type="text" readonly value="{{ date('d-m-Y H:m') }}" class="form-control">
+                <input type="text" readonly value="{{ date('d-m-Y H:i') }}" class="form-control">
             </div>
         </div>
         <br>
