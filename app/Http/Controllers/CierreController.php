@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Corte;
 use App\Cierre;
 use App\User;
+use App\Venta;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,15 @@ class CierreController extends Controller
         $ganancia = Barbercierre::where([
             ['activo', '=', 1],
         ])->sum('ganancia');
+
+//        $productos = DB::table('ventas')
+//            ->where('activo', 1)
+//            ->first();
+
+
+//        $productos = Venta::DB([
+//            ['activo', '=', 1],
+//        ])->sum('total');
 
         $cierre = Cierre::all();
 

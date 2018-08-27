@@ -14,7 +14,7 @@ class VentaController extends Controller
      */
     public function index()
     {
-        return back()->with('success','El modulo de Ventas esta en contrusccion..!!');
+        return view('ventas.index');
     }
 
     /**
@@ -35,7 +35,7 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**

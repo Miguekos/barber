@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-2">
               <label for="">Productos</label>
-                <input type="text" name="ventas_productos" readonly placeholder="En Construccion" class="form-control">
+                <input type="text" name="ventas_productos" readonly value="" placeholder="EN Construccion" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Pagos a Personal</label>
