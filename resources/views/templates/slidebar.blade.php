@@ -17,6 +17,7 @@
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/corte" aria-expanded="false"><i class="mdi mdi-box-cutter"></i><span class="hide-menu">Cortes</span></a></li>
                 <hr>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/venta" aria-expanded="false"><i class="mdi mdi-equal-box"></i><span class="hide-menu">Ventas</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/producto" aria-expanded="false"><i class="mdi mdi-equal-box"></i><span class="hide-menu">Producto</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/servicio" aria-expanded="false"><i class="mdi mdi-box-cutter"></i><span class="hide-menu">Tipos De Corte</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/barber" aria-expanded="false"><i class="mdi mdi-security-home"></i><span class="hide-menu">Barberias</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/report" aria-expanded="false"><i class="mdi mdi-application"></i><span class="hide-menu">Reporte</span></a></li>
