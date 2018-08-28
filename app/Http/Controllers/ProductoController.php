@@ -14,8 +14,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-      $productos = Producto::all();
-      return view('productos.index',compact('productos'));
+      $produc = Producto::all();
+      return view('productos.index',compact('produc'));
     }
 
     /**
@@ -32,11 +32,12 @@ class ProductoController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function store(Request $request)
     {
-        //
+        Producto::create($request->all());
+        return back()->with('success','Se agrego su producto correctamente..!!');
     }
 
     /**
@@ -58,7 +59,8 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        $produc = Producto::find($producto);
+        return view('productos.edit',compact('produc'));
     }
 
     /**

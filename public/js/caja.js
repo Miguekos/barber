@@ -372,17 +372,18 @@ function bajoStock(){
     // console.log("agotado");
     // alert('agotado');
     // swal("Producto Agotado");
-    swal({
 
-      showCancelButton: true,
-
-    }).then((result) => {
-      if (result.value) {
-        swal(
-          'No hay Stock Suficiente!',
-        )
-      }
-    })
+    // swal({
+    //
+    //   showCancelButton: true,
+    //
+    // }).then((result) => {
+    //   if (result.value) {
+    //     swal(
+    //       'No hay Stock Suficiente!',
+    //     )
+    //   }
+    // })
     
     // $('#monto').val('');    
 }

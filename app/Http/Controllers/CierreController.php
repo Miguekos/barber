@@ -37,6 +37,10 @@ class CierreController extends Controller
             ['activo', '=', 1],
         ])->sum('ganancia');
 
+        $productos = Venta::where([
+            ['activo', '=', 1],
+        ])->sum('total');
+
 //        $productos = DB::table('ventas')
 //            ->where('activo', 1)
 //            ->first();
@@ -48,7 +52,7 @@ class CierreController extends Controller
 
         $cierre = Cierre::all();
 
-        return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre'));
+        return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre','productos'));
     }
 
     /**
@@ -75,6 +79,9 @@ class CierreController extends Controller
             Cierre::create($request->all());
 
             Barbercierre::where('activo',1)
+                ->update(['activo' => 0]);
+
+            Venta::where('activo',1)
                 ->update(['activo' => 0]);
 
             return back()->with('success','Cierre realizado correctamente..!!');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Venta;
 use Illuminate\Http\Request;
+use PharIo\Version\VersionTest;
 
 class VentaController extends Controller
 {
@@ -24,7 +25,7 @@ class VentaController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -46,7 +47,7 @@ class VentaController extends Controller
      */
     public function show(Venta $venta)
     {
-        //
+
     }
 
     /**
@@ -81,5 +82,11 @@ class VentaController extends Controller
     public function destroy(Venta $venta)
     {
         //
+    }
+
+    public function facturas()
+    {
+        $ventas = Venta::all();
+        return view('ventas.show',compact('ventas'));
     }
 }

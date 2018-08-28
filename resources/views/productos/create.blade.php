@@ -3,16 +3,16 @@
 
 @section('content')
 
-<h1>Nuevo Servicio</h1>
+<h1>Nuevo Producto</h1>
 <div class="card">
     <div class="card-body">
 
       <form class="form-horizontal" method="POST" action="{{ route('producto.store') }}">
           {{ csrf_field() }}
           <div class="form-group">
-              <label for="nombre" class="col-md-4 control-label">Nombre</label>
+              <label for="nombre" class="col-md-4 control-label">Categoria</label>
               <div class="col-md-6">
-                  <input id="nombre" type="text" class="form-control" name="nombre" required autofocus>
+                  <input id="categoria" type="text" class="form-control" name="categoria" required autofocus>
               </div>
           </div>
 
@@ -24,30 +24,30 @@
           </div>
 
           <div class="form-group">
-              <label for="nombre" class="col-md-4 control-label">Nombre</label>
+              <label for="nombre" class="col-md-4 control-label">Marca</label>
               <div class="col-md-6">
-                  <input id="nombre" type="text" class="form-control" name="nombre" required autofocus>
+                  <input id="marca" type="text" class="form-control" name="marca" required autofocus>
               </div>
           </div>
 
           <div class="form-group">
-              <label for="nombre" class="col-md-4 control-label">Nombre</label>
+              <label for="Peso" class="col-md-4 control-label">Peso</label>
               <div class="col-md-6">
-                  <input id="nombre" type="text" class="form-control" name="nombre" required autofocus>
+                  <input type="text" class="form-control" name="Peso" required autofocus>
               </div>
           </div>
 
           <div class="form-group">
-              <label for="precio" class="col-md-4 control-label">Precio</label>
+              <label for="precio" class="col-md-4 control-label">Cantidad</label>
               <div class="col-md-6">
-                  <input id="precio" type="number" step="any" class="form-control" name="precio">
+                  <input type="number" step="any" class="form-control" name="cantidad">
               </div>
           </div>
 
           <div class="form-group">
-              <label for="descripcion" class="col-md-4 control-label">Descripcion</label>
+              <label for="descripcion" class="col-md-4 control-label">precio</label>
               <div class="col-md-6">
-                  <input id="descripcion" type="text" class="form-control" name="descripcion">
+                  <input type="number" step="any" class="form-control" name="precio">
               </div>
           </div>
 

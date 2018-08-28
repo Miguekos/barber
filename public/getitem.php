@@ -18,7 +18,7 @@ $q = $_GET['q'];
 $server = "127.0.0.1";
 $name_db = "root";
 $pass_db = "";
-$db = "fitseven_ventasgym";
+$db = "barber";
 
 $con = new mysqli($server,$name_db,$pass_db,$db);
 if (!$con) {

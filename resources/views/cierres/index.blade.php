@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-2">
               <label for="">Productos</label>
-                <input type="text" name="ventas_productos" readonly value="" placeholder="EN Construccion" class="form-control">
+                <input type="text" name="ventas_productos" readonly value="{{ $productos }}" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Pagos a Personal</label>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-2">
               <label for="">Total</label>
-                <input type="text" readonly name="ganancia" value="{{ $ganancia }}" class="form-control">
+                <input type="text" readonly name="ganancia" value="{{ $productos + $ganancia }}" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Fecha</label>

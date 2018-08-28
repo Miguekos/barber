@@ -27,6 +27,7 @@ Route::post('reporte', 'ReportController@reporte')->name('reporte');
 Route::get('barberos', 'DashboardController@barberos')->name('barberos');
 Route::post('barberos', 'DashboardController@cerrarBarbero')->name('barberos.store');
 Route::post('barberos_cierre', 'DashboardController@barberosCierre')->name('barberosCierre.store');
+Route::get('facturas', 'VentaController@facturas')->name('facturas');
 
 
 

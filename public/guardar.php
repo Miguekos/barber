@@ -165,7 +165,7 @@ echo "<body onload='enter4()'>";
 $server = "127.0.0.1";
 $name_db = "root";
 $pass_db = "";
-$db = "fitseven_ventasgym";
+$db = "barber";
 
 $con = new mysqli($server,$name_db,$pass_db,$db);
 if (!$con) {
@@ -246,7 +246,7 @@ if ($fact == $factP) {
             $id_user = $_POST['id_user'];
             //Guardan el la base de datos
             $guardar = "insert into ventas (id_factura, id_producto, nombre, categoria, cantidad, id_monto, total, estado, activo, hora, atendido, id_user) values ('$factP','$id','$nombre','$categoria','$nu2','$nu1','$nu3','1','1','$date','$atendido','$id_user')";
-            //echo $guardar;
+            echo $guardar;
             $resultado = mysqli_query($con,$guardar);
             // print_r($resultado);
 
@@ -257,10 +257,10 @@ if ($fact == $factP) {
 				//echo "Cantidad Comprada: ". $cantidad . " <br>";
 				$restarCantidad = $rowC['cantidad'] - $cantidad;
 				//echo $restarCantidad;
-                $inserVenta = "insert into inventario (id_producto, venta, compra, fecha) values ('$id','$nu2','0','$date')";
-                $resultado = mysqli_query($con,$inserVenta);
-				$actuProducto = "update productos set cantidad = $restarCantidad where id = $id";
-				$resultado = mysqli_query($con,$actuProducto);
+//                $inserVenta = "insert into inventario (id_producto, venta, compra, fecha) values ('$id','$nu2','0','$date')";
+//                $resultado = mysqli_query($con,$inserVenta);
+//				$actuProducto = "update productos set cantidad = $restarCantidad where id = $id";
+//				$resultado = mysqli_query($con,$actuProducto);
 			}
 
 
@@ -288,7 +288,7 @@ if ($fact == $factP) {
 
 // echo "<button href='index2.php' style='border-top-width: 1px; margin-top: 10px;' class='centro btn btn-success'>Vender</button>";
 echo "<p id='pago'></p>";
-echo "<a onkeydown='enter4()' id='nuevaventa' class='btn btn-success text-center centro' href='./?view=ventas'> Nueva Venta</a>";
+echo "<a onkeydown='enter4()' id='nuevaventa' class='btn btn-success text-center centro' href='/venta'> Nueva Venta</a>";
 echo "</form>";
 ?>
 </html>

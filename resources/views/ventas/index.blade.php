@@ -23,7 +23,7 @@
 $server = "127.0.0.1";
 $name_db = "root";
 $pass_db = "";
-$db = "fitseven_ventasgym";
+$db = "barber";
 
 $con = new mysqli($server,$name_db,$pass_db,$db);
 if (!$con) {
@@ -112,7 +112,7 @@ $fact = $row[0] + 1;
                         <div class="form-group">
                             <button type="submit" class="btn btn-sm sombra btn-success btn-fill pull-right">Imprimir</button>
                             <a class="btn sombra btn-sm btn-danger pull-left" href="./?view=ventas">Limpiar</a>
-                            <a class="btn sombra btn-sm btn-info" onclick="nombres()">Calcular</a>
+                            <a class="btn sombra btn-sm btn-warning" onclick="nombres()">Calcular</a>
                         </div>
                         <input type="hidden" class="form-control"  name="atendido" value="{{ auth()->user()->name }}"/>
                         <input type="hidden" class="form-control"  name="id_user" value="{{ auth()->user()->id }}"/>
