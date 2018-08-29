@@ -7,6 +7,7 @@
 
         <form action="{{ route('reporte') }}" method="post">
           {{ csrf_field() }}
+
           <div class="col-md-12">
 
             <div class="form-group col-md-4">
@@ -23,7 +24,7 @@
             	 <select class="form-control" name="barbero">
                   <option value=""></option>
                  @foreach($barberos as $barbero)
-                  <option value="{{ $barbero->id }}">{{ $barbero->name }}</option>
+                         <option value="{{ $barbero->id }}">{{ $barbero->name }}</option>
                  @endforeach
                </select>
             </div>

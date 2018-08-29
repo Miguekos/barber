@@ -17,6 +17,8 @@ class CreateCortesTable extends Migration
             $table->increments('id');
             $table->integer('motivo_id')->nullable();
             $table->string('motivo')->nullable();
+            $table->float('precio')->nullable();
+            $table->float('descuento')->nullable();
             $table->float('valor')->nullable();
             $table->float('porcent')->nullable();
             $table->integer('user_id')->nullable();

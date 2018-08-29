@@ -35,10 +35,17 @@ class ReportController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
-    /**
+    public function reportShow()
+    {
+        $barberos = User::all();
+        return view('reports.show',compact('barberos'));
+    }
+
+
+        /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -145,5 +152,30 @@ class ReportController extends Controller
 
 
       // return $report;
+    }
+
+    public function reporteShow(Request $request)
+    {
+        $corte = DB::table('cortes')
+            ->where('barber_id', $request->barbero)
+            ->whereBetween('created_at', [$request->inicio , $request->fin])->get();
+
+        $sumac = 0;
+        foreach ($corte as $key ) {
+            $sumac = $sumac + $key->valor;
+        }
+
+        $venta = DB::table('ventas')
+            ->where('id_user', $request->barbero)
+            ->whereBetween('created_at', [$request->inicio , $request->fin])->get();
+
+        $sumav = 0;
+        foreach ($venta as $key ) {
+            $sumav = $sumav + $key->total;
+        }
+
+
+        return view('reporteg',compact('corte','venta','sumac','sumav'));
+
     }
 }

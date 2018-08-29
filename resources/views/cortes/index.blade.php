@@ -24,15 +24,14 @@
                       </form>
                   </div>
                   <div>
-                    <label for="">Precio</label>
                     <div id="precio_servicio"></div>
                   </div>
-                  <div class="col-md-3">
-                    <label for="">% de Descuento</label>
-                    <input type="number" step="any" id="descuento" name="descuento"  class="form-control">
-                    <input type="number" step="any" id="valor" name="valor"  class="form-control">
-                    <input type="button" onclick="calcular()">
+
+                  <div>
+                      <label for="">Descuento S./</label>
+                      <input type="number" step="any" id="descuento" name="descuento"  class="form-control">
                   </div>
+
                   <input type="hidden" name="user_id" value="{{ $user->id }}" class="form-control">
                   <input type="hidden" name="barber_id" value="{{ $user->barber_id }}" class="form-control">
                   <input type="hidden" name="porcent" value="{{ $user->porcent }}" class="form-control">
@@ -54,6 +53,8 @@
                       <th>#</th>
                       <th>Servicio</th>
                       <th>Valor</th>
+                      <th>Descuento</th>
+                      <th>Total</th>
                       <th>Fecha</th>
                       <th class="text-center">Accion</th>
                   </tr>
@@ -63,6 +64,8 @@
                   <tr>
                       <td>{{ $dato->id }}</td>
                       <td>{{ $dato->motivo }}</td>
+                      <td>{{ $dato->precio }}</td>
+                      <td>{{ $dato->descuento }}</td>
                       <td>{{ $dato->valor }}</td>
                       <td>{{ $dato->created_at->Format('d-m-Y H:i') }}</td>
                       <td class="text-center">
@@ -79,6 +82,8 @@
                   <tr>
                     <td><b><u>Total: </b></u></td>
                     <td></td>
+                      <td></td>
+                      <td></td>
                     <td><b><u>{{ $suma }}</b> ./s</u></td>
                     <td></td>
                   </tr>

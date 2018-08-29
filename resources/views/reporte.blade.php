@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="card">
     <div class="card-body">
       <h1>Rerporte de {{ $nombre_barbero }}</h1> <small>Entrel el dia {{ $fecha_inicio }} y el dia {{ $fecha_fin }}</small>

@@ -28,7 +28,9 @@ class CorteController extends Controller
           ['activo', '=' ,1],
 //          ['created_at', 'LIKE', date('Y-m-d%')],
       ])->get();
-      $suma = Corte::where('user_id',$user->id)->sum('valor');
+      $suma = Corte::where('user_id',$user->id)
+          ->where('activo',1)
+          ->sum('valor');
       
       return view('cortes.index',compact('user','datos','suma','servicios'));
     }
@@ -55,7 +57,9 @@ class CorteController extends Controller
         return back()->with('flash','Debes seleccionar un Servicio..!!');
       }else {
         $dato = Corte::create($request->all());
+        $dato->valor = $request->precio - $request->descuento;
         $dato->save();
+
         return redirect()->back()->with('success','Servicio Agregado..!!');
       }
 

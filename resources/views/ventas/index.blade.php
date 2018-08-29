@@ -115,7 +115,7 @@ $fact = $row[0] + 1;
                             <a class="btn sombra btn-sm btn-warning" onclick="nombres()">Calcular</a>
                         </div>
                         <input type="hidden" class="form-control"  name="atendido" value="{{ auth()->user()->name }}"/>
-                        <input type="hidden" class="form-control"  name="id_user" value="{{ auth()->user()->id }}"/>
+                        <input type="hidden" class="form-control"  name="id_user" value="{{ auth()->user()->barber_id }}"/>
                         <input type="hidden" class="form-control"  name="date" value="{{ date('Y-m-d H:i:s') }}"/>
                     </form>
                 </div>

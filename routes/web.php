@@ -24,6 +24,8 @@ Route::resource('producto','ProductoController');
 Route::resource('cierre','CierreController');
 Route::resource('report','ReportController');
 Route::post('reporte', 'ReportController@reporte')->name('reporte');
+Route::get('reportshow', 'ReportController@reportShow')->name('reportshow');
+Route::post('reporteshow', 'ReportController@reporteShow')->name('reporteshow');
 Route::get('barberos', 'DashboardController@barberos')->name('barberos');
 Route::post('barberos', 'DashboardController@cerrarBarbero')->name('barberos.store');
 Route::post('barberos_cierre', 'DashboardController@barberosCierre')->name('barberosCierre.store');

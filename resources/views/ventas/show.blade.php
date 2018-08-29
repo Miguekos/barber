@@ -14,7 +14,7 @@
                         <th>Cantidad</th>
                         <th>Monto C/U</th>
                         <th>Total</th>
-                        <th>Atendido por:</th>
+                        <th>Barberia</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -26,7 +26,7 @@
                             <td>{{ $venta->cantidad }}</td>
                             <td>{{ $venta->id_monto }}</td>
                             <td>{{ $venta->total }}</td>
-                            <td>{{ $venta->atendido}}</td>
+                            <td>{{ $venta->id_user}}</td>
                         </tr>
                     </tbody>
                     @endforeach

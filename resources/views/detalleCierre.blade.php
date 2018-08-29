@@ -19,7 +19,7 @@
                   <input type="text" readonly name="por_pagar" value="{{ $por_pagar }}" class="form-control">
               </div>
               <div class="col-md-2">
-                  <label for="">Pago del barbero</label>
+                  <label for="">Ganancia de la tienda</label>
                   <input type="text" readonly name="ganancia" value="{{ $suma - $por_pagar }}" class="form-control">
               </div>
               <div class="col-md-2">
@@ -45,7 +45,7 @@
                     <th>Nombre</th>
                     <th>Recaudado</th>
                     <th>Por pagar</th>
-                    <th>Ganancia</th>
+                    <th>Ganancia tienda</th>
                     <th>Fecha</th>
                 </tr>
               </thead>
