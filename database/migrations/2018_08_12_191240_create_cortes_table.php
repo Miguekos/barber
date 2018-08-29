@@ -22,6 +22,7 @@ class CreateCortesTable extends Migration
             $table->integer('user_id')->nullable();
             $table->integer('barber_id')->nullable();
             $table->integer('activo');
+            $table->float('descuento')->nullable();
             $table->timestamps();
         });
     }

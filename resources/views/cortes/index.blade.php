@@ -15,10 +15,10 @@
                   <div>
                       <label for="motivo_id">Tipo de Servicio</label>
                       <form>
-                      <select class="form-control" name="motivo_id" onchange="showService(this.value)">
+                      <select class="form-control" id="motivo_id" name="motivo_id" onchange="showService(this.value)">
                         <option value="0">-- SELECCIONE UN SERVICIO --</option>
                         @foreach($servicios as $servicio)
-                          <option value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
+                          <option id="precio" value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
                         @endforeach
                       </select>
                       </form>
@@ -26,6 +26,12 @@
                   <div>
                     <label for="">Precio</label>
                     <div id="precio_servicio"></div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="">% de Descuento</label>
+                    <input type="number" step="any" id="descuento" name="descuento"  class="form-control">
+                    <input type="number" step="any" id="valor" name="valor"  class="form-control">
+                    <input type="button" onclick="calcular()">
                   </div>
                   <input type="hidden" name="user_id" value="{{ $user->id }}" class="form-control">
                   <input type="hidden" name="barber_id" value="{{ $user->barber_id }}" class="form-control">
@@ -39,8 +45,9 @@
               </div>
           </form>
           <hr>
-          <h2 class="text-center panel-heading">Control de Servicios</h2>{{ date('Y-m-d')  }}
+          <h2 class="text-center panel-heading">Control de Servicios</h2>
           <hr>
+          <div class="table-responsive">
           <table id="zero_config" class="table table-striped table-bordered">
               <thead>
                   <tr>
@@ -77,6 +84,7 @@
                   </tr>
               </tfoot>
           </table>
+          </div>
 
           <hr>
           <h5>Total en servicios <small>{{ $suma }} ./s</small></h5>
@@ -122,4 +130,25 @@
               }
           }
           </script>
+
+          <script type="text/javascript">
+            function calcular(){
+              var num1 = document.getElementById("descuento").value;
+              var num2 = document.getElementById("precio").value;
+              var valor1 = num1 / 100;
+              var valor2 = valor1 * num2;
+              var total_a_pagar = parseFloat(valor2) + parseFloat(num1);
+              document.getElementById("valor").value = total_a_pagar;
+              console.log("valor1: " + valor1);
+              console.log("Num1: " + num1);
+              console.log("Num2: " + num2);
+            };
+            function pago_por_dia(){
+              var num3 = document.getElementById("total").value;
+              var num4 = document.getElementById("dias").value;
+              var total_dias = parseFloat(num3) / parseFloat(num4);
+              // console.log("Total Dias: " + total_dias);
+              document.getElementById("totaldias").value = total_dias.toFixed(2);
+            };
+            </script>
 @endsection

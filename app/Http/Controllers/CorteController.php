@@ -29,6 +29,7 @@ class CorteController extends Controller
 //          ['created_at', 'LIKE', date('Y-m-d%')],
       ])->get();
       $suma = Corte::where('user_id',$user->id)->sum('valor');
+      
       return view('cortes.index',compact('user','datos','suma','servicios'));
     }
 
@@ -57,6 +58,7 @@ class CorteController extends Controller
         $dato->save();
         return redirect()->back()->with('success','Servicio Agregado..!!');
       }
+
     }
 
     /**
