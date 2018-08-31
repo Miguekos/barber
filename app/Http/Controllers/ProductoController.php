@@ -72,7 +72,14 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        $actual = Producto::find($producto->id);
+        $total = $actual->cantidad + $request->agregar;
+
+        Producto::where('id',$producto->id)
+            ->update(['cantidad' => $total]);
+
+        return back()->with('flash','Se agregar correctamente '. $request->agregar . ' al producto ' .$producto->nombre .'..!!');
+
     }
 
     /**

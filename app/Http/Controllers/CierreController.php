@@ -41,6 +41,13 @@ class CierreController extends Controller
             ['activo', '=', 1],
         ])->sum('total');
 
+//        $cantidad_cortes = Venta::count('id')
+//        ->where('activo',1);
+
+        $cantidad_cortes = Barbercierre::where([
+            ['activo', '=', 1],
+        ])->sum('cantidad_cortes');
+
 //        $productos = DB::table('ventas')
 //            ->where('activo', 1)
 //            ->first();
@@ -52,7 +59,7 @@ class CierreController extends Controller
 
         $cierre = Cierre::all();
 
-        return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre','productos'));
+        return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre','productos','cantidad_cortes'));
     }
 
     /**

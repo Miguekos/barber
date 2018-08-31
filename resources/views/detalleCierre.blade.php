@@ -23,9 +23,13 @@
                   <input type="text" readonly name="ganancia" value="{{ $suma - $por_pagar }}" class="form-control">
               </div>
               <div class="col-md-2">
-                  <input type="hidden" readonly name="barbero" value="{{ $nombre_cierre }}" class="form-control">
+                  <label for="">Cantidad de Cortes</label>
+                  <input type="text" readonly name="cantidad_cortes" value="{{ $cantidad_cortes}}" class="form-control">
               </div>
-              <div class="col-md-3">
+
+                  <input type="hidden" readonly name="barbero" value="{{ $nombre_cierre }}" class="form-control">
+
+              <div class="col-md-2">
                   <input type="hidden" readonly name="barbero_id" value="{{ $barbero_id }}" class="form-control">
                   <label for="">Fecha</label>
                   <input type="text" readonly name="fecha" value="{{ date('Y-m-d H:i:s') }}" class="form-control">
@@ -43,6 +47,7 @@
                 <tr>
                     <th>#</th>
                     <th>Nombre</th>
+                    <th>Cant. Cortes</th>
                     <th>Recaudado</th>
                     <th>Por pagar</th>
                     <th>Ganancia tienda</th>
@@ -54,6 +59,7 @@
                 <tr>
                     <td>{{ $detalles->id }}</td>
                     <td>{{ $detalles->barbero }}</td>
+                    <td>{{ $detalles->cantidad_cortes }}</td>
                     <td>{{ $detalles->recaudado }}</td>
                     <td>{{ $detalles->por_pagar }}</td>
                     <td>{{ $detalles->ganancia }}</td>

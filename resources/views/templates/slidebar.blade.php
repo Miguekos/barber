@@ -13,6 +13,7 @@
               @if(auth()->user()->rol == 'barbero')
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Escritorio</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/corte" aria-expanded="false"><i class="mdi mdi-box-cutter"></i><span class="hide-menu">Cortes</span></a></li>
+                    <li class="sidebar-item"><a href="/venta" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Ventas Caja </span></a></li>
               @else
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Escritorio</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/corte" aria-expanded="false"><i class="mdi mdi-box-cutter"></i><span class="hide-menu">Cortes</span></a></li>

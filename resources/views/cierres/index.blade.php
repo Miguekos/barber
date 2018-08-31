@@ -11,7 +11,7 @@
 
         <div class="row">
             <div class="col-md-2">
-              <label for="">Cortes</label>
+              <label for="">Cortes <b><u>{{ $cantidad_cortes }}</u></b></label>
                 <input type="text" name="ventas_cortes" readonly value="{{ $recaudado }}" class="form-control">
             </div>
             <div class="col-md-2">
@@ -37,6 +37,7 @@
         </div>
         <br>
         <input type="submit" class="btn btn-ms btn-success btn-block" value="Realizar Cierre">
+          <input type="hidden" name="cantidad_cortes" class="btn btn-ms btn-success btn-block" value="{{ $cantidad_cortes }}">
       </form>
         <hr>
         <h5 class="card-title"><u>Cierres</u></h5>
@@ -47,6 +48,7 @@
             <tr>
                 <th>#</th>
                 <th>Cortes</th>
+                <th>Cant. Cortes</th>
                 <th>Prodcutos</th>
                 <th>Sueldos</th>
                 <th>Ganancia</th>
@@ -60,6 +62,7 @@
             <tr>
                 <td>{{ $cierres->id }}</td>
                 <td>{{ $cierres->ventas_cortes }}</td>
+                <td>{{ $cierres->cantidad_cortes }}</td>
                 <td>{{ $cierres->ventas_productos }}</td>
                 <td>{{ $cierres->por_pagar }}</td>
                 <td>{{ $cierres->ganancia }}</td>

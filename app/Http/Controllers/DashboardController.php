@@ -81,7 +81,12 @@ class DashboardController extends Controller
                     ['user_id', '=', $request->barbero_id],
                     ['activo', '>=', 1],
                 ])->sum('valor');
-//
+
+                $cantidad_cortes = Corte::where([
+                    ['user_id', '=', $request->barbero_id],
+                    ['activo', '>=', 1],
+                ])->count();
+
                 $barbero_id = $request->barbero_id;
                 $porcentaje = $request->porcent;
                 $por_pagar = ($porcentaje / 100) * $suma;
@@ -90,7 +95,7 @@ class DashboardController extends Controller
                 $detalle = Barbercierre::where('barbero_id',$request->barbero_id)->get();
 
 
-                return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle'));
+                return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle','cantidad_cortes'));
 //            } else{
 //                return back()->with('success','No tiene cortes por cerrar..!!');
 //            }

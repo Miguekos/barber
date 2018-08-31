@@ -31,7 +31,7 @@ class CorteController extends Controller
       $suma = Corte::where('user_id',$user->id)
           ->where('activo',1)
           ->sum('valor');
-      
+
       return view('cortes.index',compact('user','datos','suma','servicios'));
     }
 
