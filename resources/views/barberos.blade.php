@@ -4,11 +4,9 @@
 <h1>Reportes diario {{ date('d-m-Y') }}</h1>
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('reporte') }}" method="post">
-          {{ csrf_field() }}
           <div class="col-md-12">
             <div class="table-responsive">
-              <table id="zero_config" class="table table-striped table-bordered">
+              <table id="example2" class="table table-striped table-bordered">
               <thead>
                 <tr>
                   <th>#</th>
@@ -18,15 +16,17 @@
                   <th>Accion</th>
                 </tr>
               </thead>
+
               <tbody>
-                @foreach($usuario as $usuarios)
+              @foreach($usuario as $usuarios)
                 <tr>
+
                   <td>{{ $usuarios->id }}</td>
                   <td>{{ $usuarios->name }}</td>
                   <td>{{ $usuarios->porcent }}</td>
                   <td>{{ $usuarios->barber }}</td>
                   <td>
-                    <form action="{{ route('barberos.store') }}" method="post">
+                    <form name="form2" id="form2" action="{{ route('reporte') }}" method="post">
                       {{ csrf_field() }}
                       <input type="hidden" name="barbero_id" value="{{ $usuarios->id }}">
                       <input type="hidden" name="porcent" value="{{ $usuarios->porcent }}">
@@ -35,13 +35,13 @@
                     </form>
                   </td>
                 </tr>
-                @endforeach
+              @endforeach
               </tbody>
+
             </table>
             </div>
 
           </div>
-        </form>
         </div>
       </div>
 @endsection
