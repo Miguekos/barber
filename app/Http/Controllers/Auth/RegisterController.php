@@ -35,18 +35,19 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-       // return $request->all();
+//        return $request->all();
+        $barber_id = Barber::find($request->barber);
         $this->validator($request->all())->validate();
         $crear = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'rol' => $request->rol,
-            'barber_id' => $request->barber_id,
-            'barber' => $request->barber,
+            'barber_id' => $request->barber,
+            'barber' => $barber_id->nombre,
             'porcent' => $request->porcent,
         ]);
-        // return $crear;
+//         return $crear;
         return redirect()->route('user.index')->with('flash','Se guardo el empleado correctamente');
     }
 

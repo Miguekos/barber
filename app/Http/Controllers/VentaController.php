@@ -86,7 +86,8 @@ class VentaController extends Controller
 
     public function facturas()
     {
-        $ventas = Venta::all();
+        $id = auth()->user()->barber_id;
+        $ventas = Venta::where('barber_id',$id)->get();
         return view('ventas.show',compact('ventas'));
     }
 }

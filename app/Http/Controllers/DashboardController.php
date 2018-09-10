@@ -52,31 +52,16 @@ class DashboardController extends Controller
 
     public function barberos()
     {
-      $usuario = User::all();
-      return view('barberos',compact('usuario'));
+        $id = auth()->user()->barber_id;
+        $usuario = User::where('barber_id',$id)->get();
+        return view('barberos',compact('usuario'));
     }
 
 
     public function cerrarBarbero(Request $request)
     {
-//       $datos = Corte::where('user_id',$request->barber_id)->get();
 
-        //validar admin
-//        return $request->all();
-//        if ($request->barbero_id == "1"){
-//            return back()->with('flash','Eres administrador');
-//        }else{
-
-//            $barberoo = Barbercierre::where([
-//                ['barbero_id', '=', $request->barbero_id],
-//         ['created_at', 'LIKE', date('Y-m-d%')],
-//            ])->orderBy('id','DESC')->first();
-
-//            if ($barberoo){
-//                $fecha = $barberoo->fecha;
-
-//        return $fecha;
-
+        $barber_id = $request->barber_id;
                 $suma = Corte::where([
                     ['user_id', '=', $request->barbero_id],
                     ['activo', '>=', 1],
@@ -95,7 +80,7 @@ class DashboardController extends Controller
                 $detalle = Barbercierre::where('barbero_id',$request->barbero_id)->get();
 
 
-                return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle','cantidad_cortes'));
+                return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle','cantidad_cortes','barber_id'));
 //            } else{
 //                return back()->with('success','No tiene cortes por cerrar..!!');
 //            }
@@ -170,8 +155,8 @@ class DashboardController extends Controller
             ->update(['activo' => 0]);
 
         return redirect()->route('barberos')->with('success','Se cerro correctamente las cuentas.!');
-//        return $request->all();
         }
+                // return $request->all();
     }
 
 

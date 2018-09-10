@@ -64,10 +64,9 @@
                                     <select class="form-control" name="barber" id="barber">
                                         <option value="">-- SELECCIONA UNA BARBERIA --</option>
                                         @foreach($barbers as $barber)
-                                        <option value="{{ $barber->nombre }}">{{ $barber->nombre }}</option>
-                                        <input type="hidden" name="barber_id" value="{{ $barber->id }}">
+                                        <option value="{{ $barber->id }}">{{ $barber->nombre }}</option>
+                                        <!--<input type="hidden" name="barber_id" value="{{ $barber->id }}">-->
                                         @endforeach
-
                                     </select>
                                 </div>
                             </div>

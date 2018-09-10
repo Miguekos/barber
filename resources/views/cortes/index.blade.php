@@ -32,6 +32,14 @@
                       <input type="number" step="any" id="descuento" name="descuento"  class="form-control">
                   </div>
 
+                  <div>
+                      <label for="">Metodo de Pago</label>
+                      <select name="meto_pago" class="form-control" id="meto_pago">
+                          <option value="Efectivo">Ejectivo</option>
+                          <option value="Tarjeta">Tarjeta</option>
+                      </select>
+                  </div>
+
                   <input type="hidden" name="user_id" value="{{ $user->id }}" class="form-control">
                   <input type="hidden" name="barber_id" value="{{ $user->barber_id }}" class="form-control">
                   <input type="hidden" name="porcent" value="{{ $user->porcent }}" class="form-control">
@@ -55,6 +63,7 @@
                       <th>Valor</th>
                       <th>Descuento</th>
                       <th>Total</th>
+                      <th>Meth. de Pago</th>
                       <th>Fecha</th>
                       <th class="text-center">Accion</th>
                   </tr>
@@ -67,6 +76,7 @@
                       <td>{{ $dato->precio }}</td>
                       <td>{{ $dato->descuento }}</td>
                       <td>{{ $dato->valor }}</td>
+                      <td>{{ $dato->meto_pago }}</td>
                       <td>{{ $dato->created_at->Format('d-m-Y H:i') }}</td>
                       <td class="text-center">
                           <form id="form" action="{{ route('corte.destroy',$dato->id) }}" method="post">

@@ -18,6 +18,7 @@
               <th>Cantidad</th>
               <th>Precio</th>
               <th>Agregar</th>
+              <th class="alert-danger">Eliminar</th>
               <th>Accion</th>
           </tr>
         </thead>
@@ -36,8 +37,18 @@
                       {{ csrf_field() }}
                       {{ method_field('PUT') }}
                       <div class="row">
-                        <input type="nomber" name="agregar" class="form-control col-md-6">
+                        <input type="number" name="agregar" class="form-control col-md-6">
                         <input type="submit" class="btn btn-xs" value="Agregar">
+                      </div>
+                  </form>
+              </td>
+              <td width="50%">
+                  <form action="{{ route('producto.update',$producs->id) }}" method="post">
+                      {{ csrf_field() }}
+                      {{ method_field('PUT') }}
+                      <div class="row">
+                          <input type="number" name="eliminar" class="form-control col-md-6">
+                          <input type="submit" class="btn btn-xs" value="Eliminar">
                       </div>
                   </form>
               </td>

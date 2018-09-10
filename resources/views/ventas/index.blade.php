@@ -14,12 +14,18 @@
                     document.getElementById("cajajs").innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET","getitem.php?q="+str,true);
+            xmlhttp.open("GET","getitem.php?q="+str+"&b="+{{ auth()->user()->barber_id }},true);
             xmlhttp.send();
         }
     }
 </script>
 <?php
+
+//$server = "localhost";
+//$name_db = "fitseven_miguel";
+//$pass_db = "Alexkos12.";
+//$db = "fitseven_barber";
+
 $server = "127.0.0.1";
 $name_db = "root";
 $pass_db = "";
@@ -58,12 +64,14 @@ $fact = $row[0] + 1;
 
         <div class="col-lg-4">
             Cantidad: <input class="form-control" onchange="validar()" onkeydown="enter2(),anularTab()" type="number" name="cantidad" id="monto" required="true">
+            <!--Cantidad: <input class="form-control" onchange="validar()" onkeydown="anularTab()" type="number" name="cantidad" id="monto" required="true">-->
         </div>
     </div>
 
         <hr>
         <div class="text-center" style="padding-bottom: 2%;">
-            <button id="btn" onkeyup="agregarProducto(),operar('multiplicar'),nombres(),clean(),enter6()" style="border-top-width: 1px; margin-top: 10px;" class="btn sombra btn-success btn-sm">Factura No: <?php echo $fact; ?> </button>
+            <!--<button id="btn" onkeyup="agregarProducto(),operar('multiplicar'),nombres(),clean(),enter6()" style="border-top-width: 1px; margin-top: 10px;" class="btn sombra btn-success btn-sm">Factura No: <?php echo $fact; ?> </button>-->
+            <button id="btn" onclick="agregarProducto(),operar('multiplicar'),nombres(),clean(),enter6()" style="border-top-width: 1px; margin-top: 10px;" class="btn sombra btn-success btn-sm">Factura No: <?php echo $fact; ?> </button>
         </div>
 
                     <!-- Aqui se muestra la Tabla Cuando se realiza la busqueda por ID -->
@@ -73,9 +81,12 @@ $fact = $row[0] + 1;
                     {{--<form action="{{ route('venta.store') }}" method="POST">--}}
                         {{ csrf_field() }}
                         <input type="hidden" name="Nfactura" value="<?php echo $fact; ?>">
+                        <input type="hidden" name="barber_id" value="{{ auth()->user()->barber_id }}">
+                        
 
 
                         <input type="hidden" id="ListaPro" name="ListaPro" value="" required />
+                        <div class="table-responsive">
                         <table id="TablaPro example" class="table table-striped">
                             <thead>
                             <tr>
@@ -104,6 +115,7 @@ $fact = $row[0] + 1;
                             </tr>
                             </tfoot>
                         </table>
+                        </div>
                         <!--Agregue un boton en caso de desear enviar los productos para ser procesados-->
                         <label class="text-center">Pago del Cliente</label>
                         <div class="pull-right form-group has-error has-feedback" style="width: 100%;">

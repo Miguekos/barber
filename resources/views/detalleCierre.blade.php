@@ -31,6 +31,7 @@
 
               <div class="col-md-2">
                   <input type="hidden" readonly name="barbero_id" value="{{ $barbero_id }}" class="form-control">
+                  <input type="hidden" readonly name="barber_id" value="{{ $barber_id }}" class="form-control">
                   <label for="">Fecha</label>
                   <input type="text" readonly name="fecha" value="{{ date('Y-m-d H:i:s') }}" class="form-control">
                   <input type="hidden" name="activo" value="1" class="form-control">

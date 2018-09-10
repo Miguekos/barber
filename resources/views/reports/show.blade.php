@@ -24,7 +24,7 @@
                     <select class="form-control" name="barbero">
                         <option value=""></option>
                         @foreach($barberos as $barbero)
-                            <option value="{{ $barbero->barber_id }}">{{ $barbero->barber }}</option>
+                            <option value="{{ $barbero->id }}">{{ $barbero->nombre }}</option>
                         @endforeach
                     </select>
                 </div>

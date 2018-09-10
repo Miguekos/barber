@@ -15,6 +15,11 @@ tr:hover {background-color:#f5f5f5;}
 <?php
 $q = $_GET['q'];
 
+//$server = "localhost";
+//$name_db = "fitseven_miguel";
+//$pass_db = "Alexkos12.";
+//$db = "fitseven_barber";
+
 $server = "127.0.0.1";
 $name_db = "root";
 $pass_db = "";
@@ -30,7 +35,9 @@ mysqli_select_db($con,"ajax_demo");
 $sql="SELECT * FROM productos WHERE id = '".$q."' or nombre LIKE '%".$q."%' or categoria LIKE '%".$q."%' or marca LIKE '%".$q."%'";
 $result = mysqli_query($con,$sql);
 
-echo "<table class='table'>
+echo "
+<div class='table-responsive'>
+<table class='table'>
 <tr>
 <th class=''>ID</th>
 <th class=''>Categoria</th>
@@ -39,7 +46,9 @@ echo "<table class='table'>
 <th class='text-center'>Cantidad</th>
 <th class='text-center'>Peso</th>
 <th class='text-center'>Precio</th>
-</tr>";
+</tr>
+</div>
+";
 $Cntbaja = "";
 $j = 1;
 while($row = mysqli_fetch_array($result)) {

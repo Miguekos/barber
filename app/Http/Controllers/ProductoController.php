@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class ProductoController extends Controller
 {
@@ -14,8 +16,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
-      $produc = Producto::all();
-      return view('productos.index',compact('produc'));
+        $id = auth()->user()->barber_id;
+        $produc = Producto::where('barber_id',$id)->get();
+        return view('productos.index',compact('produc'));
     }
 
     /**
@@ -72,13 +75,24 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        $actual = Producto::find($producto->id);
-        $total = $actual->cantidad + $request->agregar;
+        if ($request->agregar){
+            $actual = Producto::find($producto->id);
+            $total = $actual->cantidad + $request->agregar;
 
-        Producto::where('id',$producto->id)
-            ->update(['cantidad' => $total]);
+            Producto::where('id',$producto->id)
+                ->update(['cantidad' => $total]);
 
-        return back()->with('flash','Se agregar correctamente '. $request->agregar . ' al producto ' .$producto->nombre .'..!!');
+            return back()->with('flash','Se agregar correctamente '. $request->agregar . ' al producto ' .$producto->nombre .'..!!');
+
+        }else{
+            $actual = Producto::find($producto->id);
+            $total = $actual->cantidad - $request->eliminar;
+
+            Producto::where('id',$producto->id)
+                ->update(['cantidad' => $total]);
+
+            return back()->with('flash','Se Elimino correctamente '. $request->agregar . ' al producto ' .$producto->nombre .'..!!');
+        }
 
     }
 

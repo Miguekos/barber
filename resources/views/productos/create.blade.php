@@ -13,6 +13,7 @@
               <label for="nombre" class="col-md-4 control-label">Categoria</label>
               <div class="col-md-6">
                   <input id="categoria" type="text" class="form-control" name="categoria" required autofocus>
+                  <input id="categoria" type="hidden" class="form-control" name="barber_id" value="{{ auth()->user()->barber_id }}">
               </div>
           </div>
 

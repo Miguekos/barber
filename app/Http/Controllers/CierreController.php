@@ -25,20 +25,25 @@ class CierreController extends Controller
      */
     public function index()
     {
+        $id = auth()->user()->barber_id;
         $recaudado = Barbercierre::where([
           ['activo', '=', 1],
+          ['barber_id', '=', $id],
         ])->sum('recaudado');
 
         $por_pagar = Barbercierre::where([
             ['activo', '=', 1],
+            ['barber_id', '=', $id],
         ])->sum('por_pagar');
 
         $ganancia = Barbercierre::where([
             ['activo', '=', 1],
+            ['barber_id', '=', $id],
         ])->sum('ganancia');
 
         $productos = Venta::where([
             ['activo', '=', 1],
+            ['barber_id', '=', $id],
         ])->sum('total');
 
 //        $cantidad_cortes = Venta::count('id')
@@ -46,6 +51,7 @@ class CierreController extends Controller
 
         $cantidad_cortes = Barbercierre::where([
             ['activo', '=', 1],
+            ['barber_id', '=', $id],
         ])->sum('cantidad_cortes');
 
 //        $productos = DB::table('ventas')
@@ -57,7 +63,7 @@ class CierreController extends Controller
 //            ['activo', '=', 1],
 //        ])->sum('total');
 
-        $cierre = Cierre::all();
+        $cierre = Cierre::where('barber_id',$id)->get();
 
         return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre','productos','cantidad_cortes'));
     }

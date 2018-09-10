@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Barber;
 use Carbon\Carbon;
 use App\Corte;
 use App\Cierre;
@@ -40,7 +41,7 @@ class ReportController extends Controller
 
     public function reportShow()
     {
-        $barberos = User::all();
+        $barberos = Barber::all();
         return view('reports.show',compact('barberos'));
     }
 

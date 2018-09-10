@@ -38,6 +38,7 @@
         <br>
         <input type="submit" class="btn btn-ms btn-success btn-block" value="Realizar Cierre">
           <input type="hidden" name="cantidad_cortes" class="btn btn-ms btn-success btn-block" value="{{ $cantidad_cortes }}">
+          <input type="hidden" name="barber_id" class="btn btn-ms btn-success btn-block" value="{{ auth()->user()->barber_id }}">
       </form>
         <hr>
         <h5 class="card-title"><u>Cierres</u></h5>

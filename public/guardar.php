@@ -162,6 +162,11 @@ th {
 <!-- <link rel="stylesheet" href="assest/css/bootstrap.min.css"> -->
 <?php
 echo "<body onload='enter4()'>";
+//$server = "localhost";
+//$name_db = "fitseven_miguel";
+//$pass_db = "Alexkos12.";
+//$db = "fitseven_barber";
+
 $server = "127.0.0.1";
 $name_db = "root";
 $pass_db = "";
@@ -246,7 +251,7 @@ if ($fact == $factP) {
             $id_user = $_POST['id_user'];
             //Guardan el la base de datos
             $guardar = "insert into ventas (id_factura, id_producto, nombre, categoria, cantidad, id_monto, total, estado, activo, hora, atendido, id_user) values ('$factP','$id','$nombre','$categoria','$nu2','$nu1','$nu3','1','1','$date','$atendido','$id_user')";
-            echo $guardar;
+            //echo $guardar;
             $resultado = mysqli_query($con,$guardar);
             // print_r($resultado);
 

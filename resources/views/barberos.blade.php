@@ -14,30 +14,35 @@
                   <th>Barberia</th>
                   <th>Porcentaje</th>
                   <th>Accion</th>
+                  
                 </tr>
               </thead>
-
+              
               <tbody>
-              @foreach($usuario as $usuarios)
+              @foreach($usuario as $usuarios)    
                 <tr>
-
+                    
                   <td>{{ $usuarios->id }}</td>
                   <td>{{ $usuarios->name }}</td>
                   <td>{{ $usuarios->porcent }}</td>
                   <td>{{ $usuarios->barber }}</td>
                   <td>
-                    <form name="form2" id="form2" action="{{ route('reporte') }}" method="post">
+                    <form action="{{ route('barberos.store') }}" method="post">
                       {{ csrf_field() }}
                       <input type="hidden" name="barbero_id" value="{{ $usuarios->id }}">
                       <input type="hidden" name="porcent" value="{{ $usuarios->porcent }}">
                       <input type="hidden" name="nombre" value="{{ $usuarios->name }}">
+                      <input type="hidden" name="barber_id" value="{{ $usuarios->barber_id }}">
                       <input type="submit" class="btn btn-ms btn-success" value="Acividad del dia">
                     </form>
                   </td>
+                  
+                  
+              
                 </tr>
               @endforeach
               </tbody>
-
+              
             </table>
             </div>
 
