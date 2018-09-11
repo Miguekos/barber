@@ -35,7 +35,7 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-//        return $request->all();
+         //return $request->all();
         $barber_id = Barber::find($request->barber);
         $this->validator($request->all())->validate();
         $crear = User::create([

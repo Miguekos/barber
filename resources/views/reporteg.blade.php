@@ -4,12 +4,15 @@
 
     <div class="card">
         <div class="card-body">
-            {{--<h1>Rerporte de {{ $nombre_barbero }}</h1> <small>Entrel el dia {{ $fecha_inicio }} y el dia {{ $fecha_fin }}</small>--}}
-
+            <h1 class="text-center">Rerporte de {{ $nombre_barber }}</h1>
+            <hr>
+            <b><u>Total en Efectivo:</u></b> {{ number_format($efectivov, 2) }} <br>
+            <b><u>Total por Visa:</u></b> {{ number_format($tarjetav, 2) }}  <br>
+            <hr>
             {{--Recaudado: {{ $suma }} <br>--}}
             {{--Pagar al Barbero: {{ $por_pagar }} <br>--}}
 
-            <h3>Detallede de Cortes <small>Total en Cortes: {{ $sumac }}</small></h3>
+            <h3>Detallede de Cortes <small>Total en Cortes: {{ $sumac }} S./</small></h3>
             <div class="table-responsive">
                 <table id="zero_config" class="table table-striped table-bordered">
                     <thead>

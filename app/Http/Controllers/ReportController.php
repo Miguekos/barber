@@ -157,9 +157,12 @@ class ReportController extends Controller
 
     public function reporteShow(Request $request)
     {
+        $fecha_inicio = $request->inicio . " 00:00:00";
+        $fecha_fin = $request->fin . " 23:59:00";
+
         $corte = DB::table('cortes')
             ->where('barber_id', $request->barbero)
-            ->whereBetween('created_at', [$request->inicio , $request->fin])->get();
+            ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
 
         $sumac = 0;
         foreach ($corte as $key ) {
@@ -168,15 +171,37 @@ class ReportController extends Controller
 
         $venta = DB::table('ventas')
             ->where('id_user', $request->barbero)
-            ->whereBetween('created_at', [$request->inicio , $request->fin])->get();
+            ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
 
         $sumav = 0;
         foreach ($venta as $key ) {
             $sumav = $sumav + $key->total;
         }
 
+        $efectivo = DB::table('cortes')
+            ->where('barber_id', $request->barbero)
+            ->where('meto_pago', 'Efectivo')
+            ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
 
-        return view('reporteg',compact('corte','venta','sumac','sumav'));
+        $efectivov = 0;
+        foreach ($efectivo as $key ) {
+            $efectivov = $efectivov + $key->valor;
+        }
+
+        $tarjeta = DB::table('cortes')
+            ->where('barber_id', $request->barbero)
+            ->where('meto_pago', 'Tarjeta')
+            ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
+
+        $tarjetav = 0;
+        foreach ($tarjeta as $key ) {
+            $tarjetav = $tarjetav + $key->valor;
+        }
+
+        $barberia = Barber::find($request->barbero);
+        $nombre_barber = $barberia->nombre;
+
+        return view('reporteg',compact('corte','venta','sumac','sumav','efectivov','tarjetav','nombre_barber'));
 
     }
 }

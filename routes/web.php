@@ -23,6 +23,7 @@ Route::resource('servicio','ServicioController');
 Route::resource('producto','ProductoController');
 Route::resource('cierre','CierreController');
 Route::resource('report','ReportController');
+Route::resource('gastos','GastoController');
 Route::post('reporte', 'ReportController@reporte')->name('reporte');
 Route::get('reportshow', 'ReportController@reportShow')->name('reportshow');
 Route::post('reporteshow', 'ReportController@reporteShow')->name('reporteshow');

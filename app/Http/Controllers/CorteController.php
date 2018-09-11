@@ -62,7 +62,6 @@ class CorteController extends Controller
 
         return redirect()->back()->with('success','Servicio Agregado..!!');
       }
-//        return $request->all();
 
     }
 
