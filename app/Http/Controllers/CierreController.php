@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Barbercierre;
+use App\Gasto;
 use Carbon\Carbon;
 use App\Corte;
 use App\Cierre;
@@ -43,8 +44,13 @@ class CierreController extends Controller
 
         $productos = Venta::where([
             ['activo', '=', 1],
-            ['barber_id', '=', $id],
+            ['id_user', '=', $id],
         ])->sum('total');
+
+        $gastos = Gasto::where([
+            ['activo', '=', 1],
+            ['barber_id', '=', $id],
+        ])->sum('gastos');
 
 //        $cantidad_cortes = Venta::count('id')
 //        ->where('activo',1);
@@ -65,7 +71,7 @@ class CierreController extends Controller
 
         $cierre = Cierre::where('barber_id',$id)->get();
 
-        return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre','productos','cantidad_cortes'));
+        return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre','productos','cantidad_cortes','gastos'));
     }
 
     /**
@@ -95,6 +101,11 @@ class CierreController extends Controller
                 ->update(['activo' => 0]);
 
             Venta::where('activo',1)
+                ->where('id_user',auth()->user()->barber_id)
+                ->update(['activo' => 0]);
+
+            Gasto::where('activo',1)
+                ->where('barber_id',auth()->user()->barber_id)
                 ->update(['activo' => 0]);
 
             return back()->with('success','Cierre realizado correctamente..!!');

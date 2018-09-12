@@ -12,27 +12,27 @@
 
               @if(auth()->user()->rol == 'barbero')
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Escritorio</span></a></li>
-                    <!--<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/corte" aria-expanded="false"><i class="mdi mdi-box-cutter"></i><span class="hide-menu">Cortes</span></a></li>-->
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/corte" aria-expanded="false"><i class="mdi mdi-box-cutter"></i><span class="hide-menu">Cortes</span></a></li>
                     <li class="sidebar-item"><a href="/corte" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Cortes </span></a></li>
                     <li class="sidebar-item"><a href="/venta" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Ventas Caja </span></a></li>
               @else
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Escritorio</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/corte" aria-expanded="false"><i class="mdi mdi-box-cutter"></i><span class="hide-menu">Cortes</span></a></li>
                 <hr>
-                    {{--<li class="sidebar-item"> <a class="sidebar-link waves-effectv waves-dark sidebar-link" href="/venta" aria-expanded="false"><i class="mdi mdi-equal-box"></i><span class="hide-menu">Ventas</span></a></li>--}}
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effectv waves-dark sidebar-link" href="/venta" aria-expanded="false"><i class="mdi mdi-equal-box"></i><span class="hide-menu">Ventas</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Ventas </span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item"><a href="/venta" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Ventas Caja </span></a></li>
                             <li class="sidebar-item"><a href="/producto" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Productos </span></a></li>
-                            <!--<li class="sidebar-item"><a href="/producto" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Productos </span></a></li>-->
+                            <li class="sidebar-item"><a href="/producto" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Productos </span></a></li>
                             <li class="sidebar-item"><a href="/facturas" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Facturas </span></a></li>
                         </ul>
                     </li>
-                    {{--<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/facturas" aria-expanded="false"><i class="mdi mdi-equal-box"></i><span class="hide-menu">Facturas</span></a></li>--}}
-                    {{--<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/producto" aria-expanded="false"><i class="mdi mdi-equal-box"></i><span class="hide-menu">Producto</span></a></li>--}}
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/facturas" aria-expanded="false"><i class="mdi mdi-equal-box"></i><span class="hide-menu">Facturas</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/producto" aria-expanded="false"><i class="mdi mdi-equal-box"></i><span class="hide-menu">Producto</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/servicio" aria-expanded="false"><i class="mdi mdi-box-cutter"></i><span class="hide-menu">Tipos De Corte</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/barber" aria-expanded="false"><i class="mdi mdi-security-home"></i><span class="hide-menu">Barberias</span></a></li>
-                    {{--<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/report" aria-expanded="false"><i class="mdi mdi-application"></i><span class="hide-menu">Reporte</span></a></li>--}}
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/report" aria-expanded="false"><i class="mdi mdi-application"></i><span class="hide-menu">Reporte</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Reporte </span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item"><a href="/report" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Reporte Personal </span></a></li>
@@ -42,7 +42,12 @@
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/barberos" aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Detalle Barberos</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gastos" aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Gastos Varios</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/cierre" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Cierre</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/user" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Usuarios</span></a></li>
+
+              @endif
+
+
+              @if(auth()->user()->rol == 'encargado' and auth()->user()->id == 1)
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/user" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Usuarios</span></a></li>
               @endif
 
 

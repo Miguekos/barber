@@ -104,6 +104,8 @@ class ReportController extends Controller
 
     public function reporte(Request $request)
     {
+        $fecha_i = $request->inicio . " 00:00:00";
+        $fecha_f = $request->fin . " 23:59:00";
       // return $request->all();
       // $suma = Corte::where([
       //   ['user_id', '=', $request->barbero],
@@ -133,7 +135,7 @@ class ReportController extends Controller
       //Lista los servicios hechos y Suma por fechas filtradas
       $report = DB::table('cortes')
                     ->where('user_id', $request->barbero)
-                    ->whereBetween('created_at', [$request->inicio , $request->fin])->get();
+                    ->whereBetween('created_at', [$fecha_i , $fecha_f])->get();
 
       if(!$report){
         return back()->with('danger','No tiene servicios');
@@ -200,8 +202,12 @@ class ReportController extends Controller
 
         $barberia = Barber::find($request->barbero);
         $nombre_barber = $barberia->nombre;
+        
+        $cierre = DB::table('cierres')
+            ->where('barber_id',$request->barbero)
+            ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
 
-        return view('reporteg',compact('corte','venta','sumac','sumav','efectivov','tarjetav','nombre_barber'));
+        return view('reporteg',compact('corte','venta','sumac','sumav','efectivov','tarjetav','nombre_barber','cierre'));
 
     }
 }

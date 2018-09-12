@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Barber;
 use App\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
@@ -95,7 +97,6 @@ class ProductoController extends Controller
         }
 
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -106,4 +107,31 @@ class ProductoController extends Controller
     {
         //
     }
+
+    public function productosadmin()
+    {
+        $barberos = Barber::all();
+        return view('productosadmin',compact('barberos'));
+    }
+
+    public function productosstore(Request $request)
+    {
+        $fecha_inicio = $request->inicio . " 00:00:00";
+        $fecha_fin = $request->fin . " 23:59:00";
+
+        $producto = DB::table('productos')
+            ->where('barber_id', $request->barbero)
+            ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
+
+//        $sumav = 0;
+//        foreach ($producto as $key ) {
+//            $sumav = $sumav + $key->total;
+//        }
+
+        $barberia = Barber::find($request->barbero);
+        $nombre_barber = $barberia->nombre;
+
+        return view('productosa',compact('producto','nombre_barber'));
+    }
+
 }

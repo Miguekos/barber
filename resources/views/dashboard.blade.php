@@ -40,17 +40,8 @@
               </a>
             </div>
         </div>
-        <!--<div class="col-md-6 col-lg-3">-->
-        <!--    <div class="card card-hover">-->
-        <!--      <a href="/dashboard">-->
-        <!--        <div class="box bg-cyan text-center">-->
-                    <!--<h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>-->
-        <!--            <h6 class="text-white">Escritorio</h6>-->
-        <!--        </div>-->
-        <!--      </a>-->
-        <!--    </div>-->
-        <!--</div>-->
-        @else
+        @endif
+        @if(auth()->user()->rol == 'encargado' and auth()->user()->id != 1)
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
               <a href="/dashboard">
@@ -107,15 +98,15 @@
         <!-- Column -->
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
-              <a href="/report">
+              <a href="/corte">
                 <div class="box bg-success text-center">
                     <!--<h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>-->
-                    <h6 class="text-white">Reporte</h6>
+                    <h6 class="text-white">Tipo de Corte</h6>
                 </div>
                 </a>
             </div>
         </div>
-         <!-- Column -->
+        <!-- Column -->
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
               <a href="/barberos">
@@ -137,11 +128,92 @@
               </a>
             </div>
         </div>
-        <!-- Column -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+                <a href="/gastos">
+                    <div class="box bg-danger text-center">
+                        <!--<h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>-->
+                        <h6 class="text-white">Gastos</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+        @endif
+        @if(auth()->user()->rol == 'encargado' and auth()->user()->id == 1)
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+              <a href="/">
+                <div class="box bg-warning text-center">
+                    <!--<h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>-->
+                    <h6 class="text-white">Escritorio</h6>
+                </div>
+              </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+              <a href="/productosadmin">
+                <div class="box bg-danger text-center">
+                    <!--<h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>-->
+                    <h6 class="text-white">Productos</h6>
+                </div>
+              </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+              <a href="/facturasadmin">
+                <div class="box bg-info text-center">
+                    <!--<h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>-->
+                    <h6 class="text-white">Facturas</h6>
+                </div>
+              </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+              <a href="/servicio">
+                <div class="box bg-success text-center">
+                    <!--<h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>-->
+                    <h6 class="text-white">Tipos de Corte</h6>
+                </div>
+              </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+              <a href="/barber">
+                <div class="box bg-success text-center">
+                    <!--<h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>-->
+                    <h6 class="text-white">Barberias</h6>
+                </div>
+              </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+              <a href="/report">
+                <div class="box bg-info text-center">
+                    <!--<h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>-->
+                    <h6 class="text-white">Reporte Personal</h6>
+                </div>
+              </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card card-hover">
+              <a href="/reportshow">
+                <div class="box bg-danger text-center">
+                    <!--<h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>-->
+                    <h6 class="text-white">Reporte General</h6>
+                </div>
+              </a>
+            </div>
+        </div>
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
               <a href="/user">
-                <div class="box bg-danger text-center">
+                <div class="box bg-warning text-center">
                     <!--<h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>-->
                     <h6 class="text-white">Usuarios</h6>
                 </div>
@@ -149,6 +221,7 @@
             </div>
         </div>
         @endif
+        
     </div>
 
     <div class="row">

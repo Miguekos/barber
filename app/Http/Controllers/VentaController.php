@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Barber;
 use App\Venta;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PharIo\Version\VersionTest;
 
 class VentaController extends Controller
@@ -87,7 +90,33 @@ class VentaController extends Controller
     public function facturas()
     {
         $id = auth()->user()->barber_id;
-        $ventas = Venta::where('barber_id',$id)->get();
+        $ventas = Venta::where('id_user',$id)->get();
         return view('ventas.show',compact('ventas'));
+    }
+
+    public function facturasadmin()
+    {
+        $barberos = Barber::all();
+        return view('facturasadmin',compact('barberos'));
+    }
+
+    public function facturasstore(Request $request)
+    {
+        $fecha_inicio = $request->inicio . " 00:00:00";
+        $fecha_fin = $request->fin . " 23:59:00";
+
+        $venta = DB::table('ventas')
+            ->where('id_user', $request->barbero)
+            ->whereBetween('hora', [$fecha_inicio , $fecha_fin])->get();
+
+        $sumav = 0;
+        foreach ($venta as $key ) {
+            $sumav = $sumav + $key->total;
+        }
+
+        $barberia = Barber::find($request->barbero);
+        $nombre_barber = $barberia->nombre;
+
+        return view('facturasa',compact('venta','sumav','nombre_barber'));
     }
 }

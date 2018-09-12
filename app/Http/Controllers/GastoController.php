@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use App\User;
 use App\Gasto;
 use Illuminate\Http\Request;
 
@@ -17,9 +14,8 @@ class GastoController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $gastos = Gasto::where('barber_id', $user->barber_id);
-//        $gastos = Gasto::all();
+//        $gastos = Gasto::where('barber_id', auth()->user()->barber_id);
+        $gastos = Gasto::all();
         return view('gastos.index', compact('gastos'));
     }
 

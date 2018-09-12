@@ -12,11 +12,11 @@
 
             <div class="form-group col-md-4">
               <label>Inicio</label>
-            	 <input class="form-control" type="datetime-local" name="inicio">
+            	 <input class="form-control" type="date" name="inicio">
             </div>
             <div class="form-group col-md-4">
               <label>Fin</label>
-            	 <input class="form-control" type="datetime-local" name="fin">
+            	 <input class="form-control" type="date" name="fin">
             </div>
 
             <div class="form-group col-md-4">

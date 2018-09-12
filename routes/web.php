@@ -33,6 +33,16 @@ Route::post('barberos_cierre', 'DashboardController@barberosCierre')->name('barb
 Route::get('facturas', 'VentaController@facturas')->name('facturas');
 
 
+Route::get('facturasadmin', 'VentaController@facturasadmin')->name('facturasadmin');
+Route::post('facturasstore', 'VentaController@facturasstore')->name('facturasadmin.store');
+
+Route::get('productosadmin', 'ProductoController@productosadmin')->name('productosadmin');
+Route::post('productosstore', 'ProductoController@productosstore')->name('productosadmin.store');
+
+
+
+
+
 
 //resetear contraseña
 Route::get('cambioclaveform', 'DashboardController@cambioclaveform')->name('cambioclaveform.update');

@@ -34,7 +34,8 @@
   @guest
 
   @else
-  <div id="main-wrapper">
+  <!--<div id="main-wrapper">-->
+    <div id="main-wrapper" data-sidebartype="mini-sidebar" class="mini-sidebar">
   <!-- ============================================================== -->
   <!-- Preloader - style you can find in spinners.css -->
   <!-- ============================================================== -->
@@ -59,7 +60,6 @@
           <div class="container-fluid">
 
             @endguest
-
 
             @if (session()->has('success'))
                 <div class="alert alert-success">
@@ -167,6 +167,40 @@
 <script type="text/javascript">
     $(document).ready(function(){
       $("#example2").DataTable({
+      // "ordering":true,
+      "order": [[ 0, "desc" ]],
+      "language": {
+          "sProcessing":    "Procesando...",
+          "sLengthMenu":    "Mostrar _MENU_ registros",
+          "sZeroRecords":   "No se encontraron resultados",
+          "sEmptyTable":    "Ningún dato disponible en esta tabla",
+          "sInfo":          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+          "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de 0 registros",
+          "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
+          "sInfoPostFix":   "",
+          "sSearch":        "Buscar:",
+          "sUrl":           "",
+          "sInfoThousands":  ",",
+          "sLoadingRecords": "Cargando...",
+          "oPaginate": {
+              "sFirst":    "Primero",
+              "sLast":    "Último",
+              "sNext":    "Siguiente",
+              "sPrevious": "Anterior"
+          },
+          "oAria": {
+              "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+              "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+          }
+      }
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("#example3").DataTable({
       // "ordering":true,
       "order": [[ 0, "desc" ]],
       "language": {

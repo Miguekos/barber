@@ -10,12 +10,16 @@
         {{ csrf_field() }}
 
         <div class="row">
-            <div class="col-md-2">
-              <label for="">Cortes <b><u>{{ $cantidad_cortes }}</u></b></label>
+            <div class="col-md-1">
+                <label for="">Cant. C</label>
+                <input type="text" readonly value="{{ $cantidad_cortes }}" class="form-control">
+            </div>
+            <div class="col-md-1">
+              <label for="">Cortes <b><u></u></b></label>
                 <input type="text" name="ventas_cortes" readonly value="{{ $recaudado }}" class="form-control">
             </div>
-            <div class="col-md-2">
-              <label for="">Productos</label>
+            <div class="col-md-1">
+                <label for="">Productos</label>
                 <input type="text" name="ventas_productos" readonly value="{{ $productos }}" class="form-control">
             </div>
             <div class="col-md-2">
@@ -23,12 +27,16 @@
                 <input type="text" readonly name="por_pagar" value="{{ $por_pagar }}"  class="form-control">
             </div>
             <div class="col-md-2">
+                <label for="">Gastos</label>
+                <input type="text" readonly name="gastos_varios" value="{{ number_format($gastos, 2) }}" class="form-control">
+            </div>
+            <div class="col-md-1">
               <label for="">Ganancia</label>
                 <input type="text" readonly name="ganancia" value="{{ $ganancia }}" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Total</label>
-                <input type="text" readonly name="ganancia" value="{{ $productos + $ganancia }}" class="form-control">
+                <input type="text" readonly name="ganancia" value="{{ number_format(($productos + $ganancia) - $gastos, 2) }}" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="">Fecha</label>

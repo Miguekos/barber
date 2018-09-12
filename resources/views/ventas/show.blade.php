@@ -13,6 +13,7 @@
                         <th>Categoria</th>
                         <th>Cantidad</th>
                         <th>Monto C/U</th>
+                        <th>Met. Pago</th>
                         <th>Total</th>
                         <th>Barberia</th>
                     </tr>
@@ -25,6 +26,7 @@
                             <td>{{ $venta->categoria }}</td>
                             <td>{{ $venta->cantidad }}</td>
                             <td>{{ $venta->id_monto }}</td>
+                            <td>{{ $venta->meto_pago }}</td>
                             <td>{{ $venta->total }}</td>
                             <td>{{ $venta->id_user}}</td>
                         </tr>
