@@ -22,14 +22,25 @@
                 <label for="">Productos</label>
                 <input type="text" name="ventas_productos" readonly value="{{ $productos }}" class="form-control">
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
               <label for="">Pagos a Personal</label>
                 <input type="text" readonly name="por_pagar" value="{{ $por_pagar }}"  class="form-control">
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <label for="">Gastos</label>
                 <input type="text" readonly name="gastos_varios" value="{{ number_format($gastos, 2) }}" class="form-control">
             </div>
+
+            <div class="col-md-1">
+                <label class="alert-info" for="">En Efectivo</label>
+                <input type="text" readonly name="por_pagar" value="{{ $por_pagar }}"  class="form-control">
+            </div>
+            <div class="col-md-1">
+                <label class="alert-info" for="">Por Visa</label>
+                <input type="text" readonly name="gastos_varios" value="{{ number_format($gastos, 2) }}" class="form-control">
+            </div>
+
+
             <div class="col-md-1">
               <label for="">Ganancia</label>
                 <input type="text" readonly name="ganancia" value="{{ $ganancia }}" class="form-control">
@@ -89,8 +100,6 @@
           </tbody>
         </table>
         </div>
-
-
     </div>
 </div>
 @endsection

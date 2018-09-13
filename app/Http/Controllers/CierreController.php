@@ -64,6 +64,26 @@ class CierreController extends Controller
 //            ->where('activo', 1)
 //            ->first();
 
+        $efectivo = DB::table('cortes')
+            ->where('barber_id', auth()->user()->barber_id)
+            ->where('activo',1)
+            ->where('meto_pago', 'Efectivo')->get();
+
+        $efectivov = 0;
+        foreach ($efectivo as $key ) {
+            $efectivov = $efectivov + $key->valor;
+        }
+
+        $tarjeta = DB::table('cortes')
+            ->where('barber_id', auth()->user()->barber_id)
+            ->where('activo',1)
+            ->where('meto_pago', 'Tarjeta')->get();
+
+        $tarjetav = 0;
+        foreach ($tarjeta as $key ) {
+            $tarjetav = $tarjetav + $key->valor;
+        }
+
 
 //        $productos = Venta::DB([
 //            ['activo', '=', 1],
@@ -71,7 +91,7 @@ class CierreController extends Controller
 
         $cierre = Cierre::where('barber_id',$id)->get();
 
-        return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre','productos','cantidad_cortes','gastos'));
+        return view('cierres.index',compact('recaudado','por_pagar','ganancia','cierre','productos','cantidad_cortes','gastos','efectivov','tarjetav'));
     }
 
     /**

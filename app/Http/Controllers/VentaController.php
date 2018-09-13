@@ -90,7 +90,9 @@ class VentaController extends Controller
     public function facturas()
     {
         $id = auth()->user()->barber_id;
-        $ventas = Venta::where('id_user',$id)->get();
+        $ventas = Venta::where('id_user',$id)
+            ->where('activo',1)
+            ->get();
         return view('ventas.show',compact('ventas'));
     }
 
@@ -107,12 +109,12 @@ class VentaController extends Controller
 
         $venta = DB::table('ventas')
             ->where('id_user', $request->barbero)
-            ->whereBetween('hora', [$fecha_inicio , $fecha_fin])->get();
-
-        $sumav = 0;
-        foreach ($venta as $key ) {
-            $sumav = $sumav + $key->total;
-        }
+            ->whereBetween('hora', [$fecha_inicio , $fecha_fin])->toSql();
+//    dd($venta);
+//        $sumav = 0;
+//        foreach ($venta as $key ) {
+//            $sumav = $sumav + $key->total;
+//        }
 
         $barberia = Barber::find($request->barbero);
         $nombre_barber = $barberia->nombre;

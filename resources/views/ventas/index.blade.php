@@ -21,15 +21,15 @@
 </script>
 <?php
 
-$server = "localhost";
-$name_db = "fitseven_miguel";
-$pass_db = "Alexkos12.";
-$db = "fitseven_barber";
+//$server = "localhost";
+//$name_db = "fitseven_miguel";
+//$pass_db = "Alexkos12.";
+//$db = "fitseven_barber";
 
-//  $server = "127.0.0.1";
-//  $name_db = "root";
-//  $pass_db = "";
-//  $db = "barber";
+  $server = "127.0.0.1";
+  $name_db = "root";
+  $pass_db = "";
+  $db = "barber";
 
 $con = new mysqli($server,$name_db,$pass_db,$db);
 if (!$con) {

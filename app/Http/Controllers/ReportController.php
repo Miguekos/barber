@@ -161,6 +161,8 @@ class ReportController extends Controller
     {
         $fecha_inicio = $request->inicio . " 00:00:00";
         $fecha_fin = $request->fin . " 23:59:00";
+        echo $fecha_inicio;
+        echo $fecha_fin;
 
         $corte = DB::table('cortes')
             ->where('barber_id', $request->barbero)
@@ -204,9 +206,8 @@ class ReportController extends Controller
         $nombre_barber = $barberia->nombre;
         
         $cierre = DB::table('cierres')
-            ->where('barber_id',$request->barbero)->get();
-            // ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
-
+            ->where('barber_id',$request->barbero)
+            ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
 
         return view('reporteg',compact('corte','venta','sumac','sumav','efectivov','tarjetav','nombre_barber','cierre'));
 
