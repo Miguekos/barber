@@ -233,7 +233,7 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <td>Email</td>
+                        <td>Correo</td>
                         <td>{{ auth()->user()->email }}</td>
                     </tr>
                     <tr>
