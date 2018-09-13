@@ -116,12 +116,12 @@ class ProductoController extends Controller
 
     public function productosstore(Request $request)
     {
-        $fecha_inicio = $request->inicio . " 00:00:00";
-        $fecha_fin = $request->fin . " 23:59:00";
+        // $fecha_inicio = $request->inicio . " 00:00:00";
+        // $fecha_fin = $request->fin . " 23:59:00";
 
         $producto = DB::table('productos')
-            ->where('barber_id', $request->barbero)
-            ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
+            ->where('barber_id', $request->barbero)->get();
+            // ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
 
 //        $sumav = 0;
 //        foreach ($producto as $key ) {

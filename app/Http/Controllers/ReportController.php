@@ -104,7 +104,7 @@ class ReportController extends Controller
 
     public function reporte(Request $request)
     {
-        $fecha_i = $request->inicio . " 00:00:00";
+        $fecha_i = $request->inicio . " 00:59:00";
         $fecha_f = $request->fin . " 23:59:00";
       // return $request->all();
       // $suma = Corte::where([
@@ -204,8 +204,9 @@ class ReportController extends Controller
         $nombre_barber = $barberia->nombre;
         
         $cierre = DB::table('cierres')
-            ->where('barber_id',$request->barbero)
-            ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
+            ->where('barber_id',$request->barbero)->get();
+            // ->whereBetween('created_at', [$fecha_inicio , $fecha_fin])->get();
+
 
         return view('reporteg',compact('corte','venta','sumac','sumav','efectivov','tarjetav','nombre_barber','cierre'));
 

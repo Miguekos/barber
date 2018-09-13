@@ -7,14 +7,14 @@
             <form action="{{ route('productosadmin.store') }}" method="post">
                 {{ csrf_field() }}
                 <div class="col-md-12">
-                    <div class="form-group col-md-4">
-                        <label>Inicio</label>
-                        <input class="form-control" type="date" name="inicio">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label>Fin</label>
-                        <input class="form-control" type="date" name="fin">
-                    </div>
+                    <!--<div class="form-group col-md-4">-->
+                    <!--    <label>Inicio</label>-->
+                    <!--    <input class="form-control" type="date" name="inicio">-->
+                    <!--</div>-->
+                    <!--<div class="form-group col-md-4">-->
+                    <!--    <label>Fin</label>-->
+                    <!--    <input class="form-control" type="date" name="fin">-->
+                    <!--</div>-->
                     <div class="form-group col-md-4">
                         <label>Bareria</label>
                         <select class="form-control" name="barbero">
