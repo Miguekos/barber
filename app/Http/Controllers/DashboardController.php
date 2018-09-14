@@ -80,12 +80,14 @@ class DashboardController extends Controller
                 $detalle = Barbercierre::where('barbero_id',$request->barbero_id)->get();
 
                 $efectivo = Corte::where([
+                    ['user_id', '=', $request->barbero_id],
                     ['barber_id', '=', auth()->user()->barber_id],
                     ['activo', '>=', 1],
                     ['meto_pago', '=', 'Efectivo'],
                 ])->sum('valor');
 
                 $tarjeta = Corte::where([
+                    ['user_id', '=', $request->barbero_id],
                     ['barber_id', '=', auth()->user()->barber_id],
                     ['activo', '>=', 1],
                     ['meto_pago', '=', 'Tarjeta'],
