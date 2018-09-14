@@ -29,7 +29,13 @@
                                 </div>
                             </div>
 
-                            
+                            <div class="form-group">
+                                <label for="email" class="col-md-4 control-label">Porcentaje</label>
+                                <div class="col-md-6">
+                                    <input id="porcent" type="number" step="any" value="{{ $user->porcent }}" class="form-control" name="porcent" required>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="email" class="col-md-4 control-label">Rol</label>
                                 <div class="col-md-6">

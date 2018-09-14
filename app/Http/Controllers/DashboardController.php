@@ -79,8 +79,20 @@ class DashboardController extends Controller
 
                 $detalle = Barbercierre::where('barbero_id',$request->barbero_id)->get();
 
+                $efectivo = Corte::where([
+                    ['barber_id', '=', auth()->user()->barber_id],
+                    ['activo', '>=', 1],
+                    ['meto_pago', '=', 'Efectivo'],
+                ])->sum('valor');
 
-                return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle','cantidad_cortes','barber_id'));
+                $tarjeta = Corte::where([
+                    ['barber_id', '=', auth()->user()->barber_id],
+                    ['activo', '>=', 1],
+                    ['meto_pago', '=', 'Tarjeta'],
+                ])->sum('valor');
+
+
+                return view('detalleCierre',compact('suma','por_pagar','nombre_cierre','barbero_id','detalle','cantidad_cortes','barber_id','efectivo','tarjeta'));
 //            } else{
 //                return back()->with('success','No tiene cortes por cerrar..!!');
 //            }

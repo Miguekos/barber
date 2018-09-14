@@ -8,6 +8,7 @@
     <!-- ============================================================== -->
     <div class="row">
         <!-- Column -->
+        {{--Brberos--}}
         @if(auth()->user()->rol == 'barbero')
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
@@ -41,6 +42,7 @@
             </div>
         </div>
         @endif
+        {{--Encarados--}}
         @if(auth()->user()->rol == 'encargado' and auth()->user()->id != 1)
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
@@ -98,7 +100,7 @@
         <!-- Column -->
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
-              <a href="/corte">
+              <a href="/servicio">
                 <div class="box bg-success text-center">
                     <!--<h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>-->
                     <h6 class="text-white">Tipo de Corte</h6>
@@ -221,14 +223,13 @@
             </div>
         </div>
         @endif
-        
     </div>
 
     <div class="row">
     <div class="col-md-4">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title m-b-0">Detalle de: {{ auth()->user()->name }}</h5>
+                <h5 class="text-center card-title m-b-0">Detalle de: {{ auth()->user()->name }}</h5>
             </div>
             <table class="table">
                 <tbody>

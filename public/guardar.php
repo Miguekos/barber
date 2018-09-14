@@ -264,8 +264,8 @@ if ($fact == $factP) {
 				//echo $restarCantidad;
 //                $inserVenta = "insert into inventario (id_producto, venta, compra, fecha) values ('$id','$nu2','0','$date')";
 //                $resultado = mysqli_query($con,$inserVenta);
-//				$actuProducto = "update productos set cantidad = $restarCantidad where id = $id";
-//				$resultado = mysqli_query($con,$actuProducto);
+				$actuProducto = "update productos set cantidad = $restarCantidad where id = $id";
+				$resultado = mysqli_query($con,$actuProducto);
 			}
 
 

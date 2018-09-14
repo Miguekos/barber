@@ -23,7 +23,7 @@
                 <input type="text" name="ventas_productos" readonly value="{{ $productos }}" class="form-control">
             </div>
             <div class="col-md-1">
-              <label for="">Pagos a Personal</label>
+              <label for="">Pagos Pers.</label>
                 <input type="text" readonly name="por_pagar" value="{{ $por_pagar }}"  class="form-control">
             </div>
             <div class="col-md-1">
@@ -32,12 +32,12 @@
             </div>
 
             <div class="col-md-1">
-                <label class="alert-info" for="">En Efectivo</label>
-                <input type="text" readonly name="por_pagar" value="{{ $por_pagar }}"  class="form-control">
+                <label for="">En Efectivo</label>
+                <input type="text" readonly name="efectivo" value="{{ number_format($efectivov, 2) }}"  class="form-control alert-warning">
             </div>
             <div class="col-md-1">
-                <label class="alert-info" for="">Por Visa</label>
-                <input type="text" readonly name="gastos_varios" value="{{ number_format($gastos, 2) }}" class="form-control">
+                <label for="">Por Visa</label>
+                <input type="text" readonly name="tarjeta" value="{{ number_format($tarjetav, 2) }}" class="form-control alert-warning">
             </div>
 
 
@@ -72,6 +72,8 @@
                 <th>Prodcutos</th>
                 <th>Sueldos</th>
                 <th>Ganancia</th>
+                <th>Efectivo</th>
+                <th>Visa</th>
                 <th>Total</th>
                 <th>Fecha</th>
                 <th>Accion</th>
@@ -86,6 +88,8 @@
                 <td>{{ $cierres->ventas_productos }}</td>
                 <td>{{ $cierres->por_pagar }}</td>
                 <td>{{ $cierres->ganancia }}</td>
+                <td>{{ $cierres->efectivo }}</td>
+                <td>{{ $cierres->tarjeta }}</td>
                 <td>{{ $cierres->ganancia }}</td>
                 <td>{{ $cierres->fecha }}</td>
                 <td>

@@ -67,8 +67,16 @@ $fact = $row[0] + 1;
             <!--Cantidad: <input class="form-control" onchange="validar()" onkeydown="anularTab()" type="number" name="cantidad" id="monto" required="true">-->
         </div>
     </div>
+            <form action="guardar.php" method="POST">
+                {{--<form action="{{ route('venta.store') }}" method="POST">--}}
+                {{ csrf_field() }}
 
         <hr>
+                <select class="form-control" name="meto_pago" >
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Visa">Visa</option>
+                </select>
+                <hr>
         <div class="text-center" style="padding-bottom: 2%;">
             <!--<button id="btn" onkeyup="agregarProducto(),operar('multiplicar'),nombres(),clean(),enter6()" style="border-top-width: 1px; margin-top: 10px;" class="btn sombra btn-success btn-sm">Factura No: <?php echo $fact; ?> </button>-->
             <button id="btn" onclick="agregarProducto(),operar('multiplicar'),nombres(),clean(),enter6()" style="border-top-width: 1px; margin-top: 10px;" class="btn sombra btn-success btn-sm">Factura No: <?php echo $fact; ?> </button>
@@ -77,16 +85,12 @@ $fact = $row[0] + 1;
                     <!-- Aqui se muestra la Tabla Cuando se realiza la busqueda por ID -->
                     <p> <span id="cajajs"></span></p>
 
-                    <form action="guardar.php" method="POST">
-                    {{--<form action="{{ route('venta.store') }}" method="POST">--}}
-                        {{ csrf_field() }}
+
+
                         <input type="hidden" name="Nfactura" value="<?php echo $fact; ?>">
                         <input type="hidden" name="barber_id" value="{{ auth()->user()->barber_id }}">
-                        <select class="form-control" name="meto_pago" >
-                          <option value="Efectivo">Efectivo</option>
-                          <option value="Visa">Visa</option>
-                        </select>
-                        <hr>
+
+
 
                         <input type="hidden" id="ListaPro" name="ListaPro" value="" required />
                         <div class="table-responsive">

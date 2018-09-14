@@ -10,6 +10,14 @@
           <h1>Rerporte de {{ $nombre_cierre }}</h1>
           <hr>
           <div class="row">
+              <div class="col-md-1">
+                  <label for="">Efectivo</label>
+                  <input type="text" readonly name="efectivo" value="{{ $efectivo }}" class="form-control">
+              </div>
+              <div class="col-md-1">
+                  <label for="">Visa</label>
+                  <input type="text" readonly name="tarjeta" value="{{ $tarjeta }}" class="form-control">
+              </div>
               <div class="col-md-2">
                   <label for="">Recaudado</label>
                   <input type="text" readonly name="recaudado" value="{{ $suma }}" class="form-control">
@@ -49,6 +57,8 @@
                     <th>#</th>
                     <th>Nombre</th>
                     <th>Cant. Cortes</th>
+                    <th>Efectivo</th>
+                    <th>Tarjeta</th>
                     <th>Recaudado</th>
                     <th>Por pagar</th>
                     <th>Ganancia tienda</th>
@@ -61,6 +71,8 @@
                     <td>{{ $detalles->id }}</td>
                     <td>{{ $detalles->barbero }}</td>
                     <td>{{ $detalles->cantidad_cortes }}</td>
+                    <td>{{ $detalles->efectivo }}</td>
+                    <td>{{ $detalles->tarjeta }}</td>
                     <td>{{ $detalles->recaudado }}</td>
                     <td>{{ $detalles->por_pagar }}</td>
                     <td>{{ $detalles->ganancia }}</td>
