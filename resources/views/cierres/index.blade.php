@@ -33,13 +33,12 @@
 
             <div class="col-md-1">
                 <label for="">En Efectivo</label>
-                <input type="text" readonly name="efectivo" value="{{ number_format($efectivov, 2) }}"  class="form-control alert-warning">
+                <input type="text" readonly name="efectivo" value="{{ number_format($efectivov - $por_pagar, 2) }}"  class="form-control alert-warning">
             </div>
             <div class="col-md-1">
                 <label for="">Por Visa</label>
                 <input type="text" readonly name="tarjeta" value="{{ number_format($tarjetav, 2) }}" class="form-control alert-warning">
             </div>
-
 
             <div class="col-md-1">
               <label for="">Ganancia</label>

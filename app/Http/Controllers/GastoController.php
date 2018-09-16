@@ -14,8 +14,10 @@ class GastoController extends Controller
      */
     public function index()
     {
-//        $gastos = Gasto::where('barber_id', auth()->user()->barber_id);
-        $gastos = Gasto::all();
+        $gastos = Gasto::where('barber_id', auth()->user()
+            ->barber_id)
+            ->get();
+//        $gastos = Gasto::all();
         return view('gastos.index', compact('gastos'));
     }
 
