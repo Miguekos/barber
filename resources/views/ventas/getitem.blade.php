@@ -1,40 +1,40 @@
 <style>
-.tableta {
-    border-collapse: collapse;
-    width: 100%;
-}
+    .tableta {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-th, td {
-    padding: 3px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
+    th, td {
+        padding: 3px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
 
-tr:hover {background-color:#f5f5f5;}
+    tr:hover {background-color:#f5f5f5;}
 </style>
 <?php
-$q = $_GET['q'];
-$b = $_GET['b'];
-
-//$server = "localhost";
-//$name_db = "fitseven_miguel";
-//$pass_db = "Alexkos12.";
-//$db = "fitseven_barber";
-
- $server = "127.0.0.1";
- $name_db = "root";
- $pass_db = "";
- $db = "barber";
-
-$con = new mysqli($server,$name_db,$pass_db,$db);
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}else{
-    //echo "Conecto";
-}
-mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM productos WHERE barber_id = '".$b."' and (id = '".$q."' or nombre LIKE '%".$q."%' or categoria LIKE '%".$q."%' or marca LIKE '%".$q."%')";
-$result = mysqli_query($con,$sql);
+//$q = $_GET['q'];
+//$b = $_GET['b'];
+//
+////$server = "localhost";
+////$name_db = "fitseven_miguel";
+////$pass_db = "Alexkos12.";
+////$db = "fitseven_barber";
+//
+//$server = "127.0.0.1";
+//$name_db = "root";
+//$pass_db = "";
+//$db = "barber";
+//
+//$con = new mysqli($server,$name_db,$pass_db,$db);
+//if (!$con) {
+//    die('Could not connect: ' . mysqli_error($con));
+//}else{
+//    //echo "Conecto";
+//}
+//mysqli_select_db($con,"ajax_demo");
+//$sql="SELECT * FROM productos WHERE barber_id = '".$b."' and (id = '".$q."' or nombre LIKE '%".$q."%' or categoria LIKE '%".$q."%' or marca LIKE '%".$q."%')";
+//$result = mysqli_query($con,$sql);
 
 echo "
 <div class='table-responsive'>

@@ -86,4 +86,10 @@ class ServicioController extends Controller
     {
         //
     }
+
+    public function getservice(Servicio $servicio)
+    {
+
+        return $servicio;
+    }
 }

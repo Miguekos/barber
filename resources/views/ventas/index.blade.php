@@ -14,7 +14,7 @@
                     document.getElementById("cajajs").innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET","getitem.php?q="+str+"&b="+{{ auth()->user()->barber_id }},true);
+            xmlhttp.open("GET","getitem?q="+str+"&b="+{{ auth()->user()->barber_id }},true);
             xmlhttp.send();
         }
     }
@@ -89,8 +89,6 @@ $fact = $row[0] + 1;
 
                         <input type="hidden" name="Nfactura" value="<?php echo $fact; ?>">
                         <input type="hidden" name="barber_id" value="{{ auth()->user()->barber_id }}">
-
-
 
                         <input type="hidden" id="ListaPro" name="ListaPro" value="" required />
                         <div class="table-responsive">

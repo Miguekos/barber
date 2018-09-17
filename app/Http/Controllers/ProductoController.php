@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class ProductoController extends Controller
 {
@@ -132,6 +133,32 @@ class ProductoController extends Controller
         $nombre_barber = $barberia->nombre;
 
         return view('productosa',compact('producto','nombre_barber'));
+    }
+
+    public function getitem()
+    {
+        $producto = Input::get('q');
+        $barberia = Input::get('b');
+//        $producto = Producto::where('barber_id',$barberia)
+//            ->Where([
+//                ->orwhere(['id','LIKE',$producto]),
+//                ['nombre','LIKE',$producto],
+//                ['categoria','LIKE',$producto],
+//                ['marca','LIKE',$producto]
+//            ])
+//            ->toSql();
+
+        $producto = DB::table('productos')
+            ->where('barber_id', '=', $barberia)
+            ->where(function ($query) use ($producto) {
+                $query->where('id', '=', $producto)
+                    ->orWhere('nombre', 'LIKE', '%'.$producto.'%')
+                    ->orWhere('categoria', 'LIKE', '%'.$producto.'%')
+                    ->orWhere('marca', 'LIKE', '%'.$producto.'%');
+            })
+            ->get();
+
+        return view('ventas.getitem');
     }
 
 }

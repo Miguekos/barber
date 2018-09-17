@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Barber;
+use App\Producto;
 use App\Venta;
 use App\User;
 use Illuminate\Http\Request;
@@ -109,7 +110,7 @@ class VentaController extends Controller
 
         $venta = DB::table('ventas')
             ->where('id_user', $request->barbero)
-            ->whereBetween('hora', [$fecha_inicio , $fecha_fin])->toSql();
+            ->whereBetween('hora', [$fecha_inicio , $fecha_fin])->get();
 //    dd($venta);
 //        $sumav = 0;
 //        foreach ($venta as $key ) {
@@ -121,4 +122,6 @@ class VentaController extends Controller
 
         return view('facturasa',compact('venta','sumav','nombre_barber'));
     }
+
+
 }
