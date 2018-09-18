@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Input;
 
 class ProductoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -148,17 +152,19 @@ class ProductoController extends Controller
 //            ])
 //            ->toSql();
 
-        $producto = DB::table('productos')
-            ->where('barber_id', '=', $barberia)
-            ->where(function ($query) use ($producto) {
-                $query->where('id', '=', $producto)
-                    ->orWhere('nombre', 'LIKE', '%'.$producto.'%')
-                    ->orWhere('categoria', 'LIKE', '%'.$producto.'%')
-                    ->orWhere('marca', 'LIKE', '%'.$producto.'%');
-            })
-            ->get();
-
-        return view('ventas.getitem');
+//
+//        $producto = DB::table('productos')
+//            ->where('barber_id', '=', $barberia)
+//            ->where(function ($query) use ($producto) {
+//                $query->where('id', '=', $producto)
+//                    ->orWhere('nombre', 'LIKE', '%'.$producto.'%')
+//                    ->orWhere('categoria', 'LIKE', '%'.$producto.'%')
+//                    ->orWhere('marca', 'LIKE', '%'.$producto.'%');
+//            })
+//            ->get();
+//
+//        return view('ventas.getitem');
+//        return $producto;
     }
 
 }
