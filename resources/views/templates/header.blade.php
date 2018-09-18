@@ -1,3 +1,4 @@
+
 <!-- ============================================================== -->
 <!-- Topbar header - style you can find in pages.scss -->
 <!-- ============================================================== -->
@@ -5,7 +6,7 @@
     <nav class="navbar top-navbar navbar-expand-md navbar-dark">
         <div class="navbar-header" data-logobg="skin5">
             <!-- This is for the sidebar toggle which is visible on mobile only -->
-            {{--<a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>--}}
+            <!-- <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a> -->
                 <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
@@ -14,14 +15,17 @@
                 <b class="logo-icon p-l-10">
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="../../assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                    <!-- <img src="../../assets/images/logo-icon.png" alt="homepage" class="light-logo" /> -->
+                    <img src="../../assets/images/logo-icon_.png" alt="homepage" class="light-logo" />
+
 
                 </b>
                 <!--End Logo icon -->
                  <!-- Logo text -->
                 <span class="logo-text">
                      <!-- dark Logo text -->
-                     <img src="../../assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                     <!-- <img src="../../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                     Barber Shop
 
                 </span>
                 <!-- Logo icon -->
