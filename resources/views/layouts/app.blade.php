@@ -27,6 +27,8 @@
 
 
 
+
+
 </head>
 
 <body>
@@ -80,6 +82,7 @@
 
 
             @endif
+
                 @yield('content')
 
 

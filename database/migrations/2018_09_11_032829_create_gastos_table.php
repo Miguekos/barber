@@ -21,6 +21,8 @@ class CreateGastosTable extends Migration
             $table->integer('barber_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->string('user_name')->nullable();
+            $table->integer('activo')->nullable();
+            $table->timestamp('fecha')->nullable();
             $table->timestamps();
         });
     }

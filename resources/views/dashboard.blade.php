@@ -2,7 +2,8 @@
 
 @section('content')
 
-<div class="container-fluid">
+
+<div class="container">
     <!-- ============================================================== -->
     <!-- Start Page Content -->
     <!-- ============================================================== -->
@@ -226,7 +227,7 @@
     </div>
 
     <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 centrado">
         <div class="card">
             <div class="card-body">
                 <h5 class="text-center card-title m-b-0">Detalle de: {{ auth()->user()->name }}</h5>

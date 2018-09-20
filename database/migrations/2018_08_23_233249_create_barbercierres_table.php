@@ -19,9 +19,14 @@ class CreateBarbercierresTable extends Migration
             $table->string('barbero')->nullable();
             $table->float('por_pagar')->nullable();
             $table->float('recaudado')->nullable();
+            $table->float('productos')->nullable();
             $table->float('ganancia')->nullable();
             $table->timestamp('fecha')->nullable();
             $table->integer('activo');
+            $table->integer('cantidad_cortes')->nullable();
+            $table->integer('barber_id')->nullable();
+            $table->float('efectivo')->nullable();
+            $table->float('tarjeta')->nullable();
             $table->timestamps();
         });
     }
