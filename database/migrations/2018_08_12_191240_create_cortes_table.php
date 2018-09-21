@@ -18,10 +18,7 @@ class CreateCortesTable extends Migration
             $table->integer('motivo_id')->nullable();
             $table->string('motivo')->nullable();
             $table->float('valor')->nullable();
-            $table->float('descuento')->nullable();
             $table->float('porcent')->nullable();
-            $table->string('meto_pago')->nullable();
-            $table->float('precio')->nullable();
             $table->integer('user_id')->nullable();
             $table->integer('barber_id')->nullable();
             $table->integer('activo');

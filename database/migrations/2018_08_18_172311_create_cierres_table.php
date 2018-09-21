@@ -22,10 +22,6 @@ class CreateCierresTable extends Migration
             $table->string('ganancia')->nullable();
             $table->string('gastos_varios')->nullable();
             $table->timestamp('fecha')->nullable();
-            $table->integer('cantidad_cortes')->nullable();
-            $table->integer('barber_id')->nullable();
-            $table->float('efectivo')->nullable();
-            $table->float('tarjeta')->nullable();
             $table->string('zero_config_length')->nullable();
             $table->timestamps();
         });

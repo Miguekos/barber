@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Barber;
+use App\Producto;
 use App\Venta;
 use App\User;
 use Illuminate\Http\Request;
@@ -11,10 +12,10 @@ use PharIo\Version\VersionTest;
 
 class VentaController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -113,7 +114,7 @@ class VentaController extends Controller
 
         $venta = DB::table('ventas')
             ->where('id_user', $request->barbero)
-            ->whereBetween('hora', [$fecha_inicio , $fecha_fin])->toSql();
+            ->whereBetween('hora', [$fecha_inicio , $fecha_fin])->get();
 //    dd($venta);
 //        $sumav = 0;
 //        foreach ($venta as $key ) {
@@ -125,4 +126,6 @@ class VentaController extends Controller
 
         return view('facturasa',compact('venta','sumav','nombre_barber'));
     }
+
+
 }

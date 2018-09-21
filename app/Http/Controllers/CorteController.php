@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Session;
 
 class CorteController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -57,7 +57,6 @@ class CorteController extends Controller
      */
     public function store(Request $request)
     {
-      // return  $request->all();
       if (!$request->motivo_id) {
         return back()->with('flash','Debes seleccionar un Servicio..!!');
       }else {

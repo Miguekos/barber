@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="centrado">
     <h1>Productos</h1>
     <div class="card">
         <div class="card-body">
             <form action="{{ route('productosadmin.store') }}" method="post">
                 {{ csrf_field() }}
-                <div class="col-md-12 centrado">
+                <div class="col-md-12">
                     <!--<div class="form-group col-md-4">-->
                     <!--    <label>Inicio</label>-->
                     <!--    <input class="form-control" type="date" name="inicio">-->
@@ -31,6 +30,5 @@
                 </div>
             </form>
         </div>
-    </div>
     </div>
 @endsection

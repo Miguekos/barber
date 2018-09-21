@@ -2,7 +2,7 @@
 <!-- footer -->
 <!-- ============================================================== -->
 <footer class="footer text-center">
-    All Rights Reserved by Miguekos-admin {{ date('Y') }}. <a href="#">miguekos1233@gmail.com</a>.
+    All Rights Reserved by Miguekos-admin {{ date('Y') }}. Designed and Developed by <a href="#">miguekos1233@gmail.com</a>.
 </footer>
 <!-- ============================================================== -->
 <!-- End footer -->

@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class ServicioController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +18,7 @@ class ServicioController extends Controller
      */
     public function index()
     {
-
+        
         $servicios = Servicio::all();
         return view('servicios.index',compact('servicios'));
     }
@@ -89,5 +89,11 @@ class ServicioController extends Controller
     public function destroy(Servicio $servicio)
     {
         //
+    }
+
+    public function getservice(Servicio $servicio)
+    {
+
+        return $servicio;
     }
 }

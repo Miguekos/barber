@@ -27,8 +27,6 @@
 
 
 
-
-
 </head>
 
 <body>
@@ -36,8 +34,8 @@
   @guest
 
   @else
-  <div id="main-wrapper">
-    {{--<div id="main-wrapper" data-sidebartype="mini-sidebar" class="mini-sidebar">--}}
+  <!--<div id="main-wrapper">-->
+    <div id="main-wrapper" data-sidebartype="mini-sidebar" class="mini-sidebar">
   <!-- ============================================================== -->
   <!-- Preloader - style you can find in spinners.css -->
   <!-- ============================================================== -->
@@ -52,16 +50,14 @@
   <!-- ============================================================== -->
 
     @include('templates.header')
-    {{--@include('templates.slidebar')--}}
+    @include('templates.slidebar')
     <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        {{--<div class="page-wrapper">--}}
-            <div class="">
-                <hr>
+        <div class="page-wrapper">
 
 
-          <div class="container">
+          <div class="container-fluid">
 
             @endguest
 
@@ -82,7 +78,6 @@
 
 
             @endif
-
                 @yield('content')
 
 

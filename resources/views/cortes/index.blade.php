@@ -18,15 +18,17 @@
                       <select class="form-control" id="motivo_id" name="motivo_id" onchange="showService(this.value)">
                         <option value="0">-- SELECCIONE UN SERVICIO --</option>
                         @foreach($servicios as $servicio)
-                          <option id="precio" value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
+                          <option value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
                         @endforeach
                       </select>
                       </form>
                   </div>
-                  <div>
-                    <div id="precio_servicio"></div>
-                  </div>
-
+                  {{--<div>--}}
+                    {{--<div id="precio_servicio"></div>--}}
+                  {{--</div>--}}
+                  <label for=''>Precio</label>
+                  <input type="number" step="any" id='precio_servicio' name='precio' class='form-control'>
+                  <input type='hidden' id='motivo' name='motivo' class='form-control'>
                   <div>
                       <label for="">Descuento S./</label>
                       <input type="number" step="any" id="descuento" name="descuento"  class="form-control">
@@ -110,13 +112,13 @@
         </div>
         <script>
         function myFunction() {
-            var person = prompt("Contrase«Ða: ");
+            var person = prompt("ContraseÃ±a: ");
             if (person == 'borrar') {
                 // document.getElementById("demo").innerHTML =
                 // "Hello " + person + "! How are you today?";
                 document.getElementById('form').submit();
             }else{
-                alert('Contrase«Ða Incorrecta');
+                alert('ContraseÃ±a Incorrecta');
                 // location.href="/home";
             }
         }
@@ -124,10 +126,10 @@
 
         <script>
           function showService(str) {
-              if (str == "") {
-                  document.getElementById("precio_servicio").innerHTML = "";
-                  return;
-              } else {
+//              if (str == "") {
+//                  document.getElementById("precio_servicio").innerHTML = "";
+//                  return;
+//              } else {
                   if (window.XMLHttpRequest) {
                       // code for IE7+, Firefox, Chrome, Opera, Safari
                       xmlhttp = new XMLHttpRequest();
@@ -137,12 +139,17 @@
                   }
                   xmlhttp.onreadystatechange = function() {
                       if (this.readyState == 4 && this.status == 200) {
-                          document.getElementById("precio_servicio").innerHTML = this.responseText;
+                          var json = JSON.parse(this.responseText);
+                          document.getElementById("motivo").value = json.nombre;
+                          document.getElementById("precio_servicio").value = json.precio;
+//                          console.log(json);
+                          console.log(json.nombre);
+                          console.log(json.precio);
                       }
                   };
-                  xmlhttp.open("GET","getservice.php?q="+str,true);
+                  xmlhttp.open("GET","/getservice/"+str,true);
                   xmlhttp.send();
-              }
+//              }
           }
           </script>
 

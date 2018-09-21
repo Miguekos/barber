@@ -19,9 +19,8 @@ class CreateProductosTable extends Migration
             $table->string('nombre')->nullable();
             $table->string('marca')->nullable();
             $table->string('peso')->nullable();
-            $table->integer('cantidad')->nullable();
+            $table->float('cantidad')->nullable();
             $table->float('precio')->nullable();
-            $table->integer('barber_id')->nullable();
             $table->timestamps();
         });
     }
