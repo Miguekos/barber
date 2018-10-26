@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <h1>Productos <small class="pull-right"><a class="btn btn-xs btn-success" href="{{ route('producto.create') }}">Nueva Prodcutos</a></small></h1>
 <div class="card">
     <div class="card-body">
@@ -68,5 +67,4 @@
     </div>
     </div>
 </div>
-
 @endsection
